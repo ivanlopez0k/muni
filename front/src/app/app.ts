@@ -8,7 +8,6 @@ import { FooterComponent } from './layout/footer/footer.component';
   imports: [RouterOutlet, NavComponent, FooterComponent],
   templateUrl: './app.html',
   styleUrl: './app.scss',
-  standalone:true
 })
 export class App {
   protected readonly title = signal('front');

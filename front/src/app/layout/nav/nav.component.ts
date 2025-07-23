@@ -6,8 +6,9 @@ import { RouterModule } from '@angular/router';
   imports: [RouterModule],
   templateUrl: './nav.component.html',
   styleUrls: ['./nav.component.scss'],
-  standalone:true
 })
-export class NavComponent {
 
+export class NavComponent {
+  imagenes = [{
+  src: 'assets/logo_muni.jpg'}]
 }
