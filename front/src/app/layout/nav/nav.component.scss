@@ -1,0 +1,65 @@
+*{
+margin: 0;
+padding:0;
+box-sizing: border-box;
+}
+
+body{
+	font-family: sans-serif;
+}
+
+.nav{
+	background-color: #0886b5;
+	padding: 1rem 0;
+	}
+
+ul{
+	list-style: none;
+}
+
+.contenedor_nav{
+display: flex;
+justify-content: center;
+align-items: center;
+max-width: 200px;
+margin: 0 auto;
+padding: 0 1rem;
+gap: 2rem;
+height: 100px;
+
+}
+
+.nav-group{
+	display: flex;
+	gap: 5rem;
+}
+
+
+
+a {
+	color: white;
+	text-decoration: none;
+	font-weight: 500;
+	font-size: 2rem;
+	transition: color 0.3s;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.imagen_nav{
+  display: block;
+ height:200px;
+  
+}
