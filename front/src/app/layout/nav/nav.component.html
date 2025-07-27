@@ -1,23 +1,25 @@
-<header class="header">
-  <nav class="nav">
+<nav class="navbar">
+    <input type="checkbox" id="menu-toggle" class="menu-toggle" />
+    <label for="menu-toggle" class="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </label>
 
-    <input type="checkbox" id="menu-toggle" class="menu-toggle">
-    <label for="menu-toggle" class="menu-icon">&#9776;</label>
+    <div class="menu left">
+      <a target="_blank" href="http://www.minaclavero.gov.ar/turismo.php">Turismo</a>
+      <a href="#municipalidad">Municipalidad</a>
+    </div>
 
-    <ul class="contenedor_nav">
-      <li><a target="_blank" href="http://www.minaclavero.gov.ar/turismo.php">Turismo</a></li>
-      <li><a>Municipalidad</a></li>
+    <div class="logo">
+      <img src="assets/logo_muni.png" alt="Municipalidad de Mina Clavero" />
+    </div>
 
-      <li>
-        <a routerLink=""><img class="imagen_nav" src="assets/logo_muni.png" alt="Logo"></a>
-      </li>
-
-      <li><a routerLink="encuesta">Encuesta</a></li>
-      <li><a routerLink="contacto">Contacto</a></li>
-    </ul>
-
+    <div class="menu right">
+      <a routerLink="encuesta">Encuesta</a>
+      <a routerLink="contacto">Contacto</a>
+    </div>
   </nav>
-</header>
 
 
 
