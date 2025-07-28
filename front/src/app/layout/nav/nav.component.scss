@@ -74,6 +74,10 @@
     align-items: center;
   }
 
+.menu-toggle:checked ~ .logo {
+    display: none;
+  }
+
   .menu-toggle:checked ~ .menu.left,
   .menu-toggle:checked ~ .menu.right {
     display: flex;
