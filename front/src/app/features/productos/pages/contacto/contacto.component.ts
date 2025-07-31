@@ -17,7 +17,7 @@ export interface ContenidoFormulario {
 })
 export class Contacto {
   private fb = inject(NonNullableFormBuilder);
-  contactoService = inject(ContactoService);
+  private contactoService = inject(ContactoService);
 
   form: FormGroup<ContenidoFormulario> = this.fb.group({
     name: this.fb.control('', Validators.required),
