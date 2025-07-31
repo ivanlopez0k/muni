@@ -1,8 +1,8 @@
 import { Routes } from '@angular/router';
-import { Inicio } from './features/productos/pages/inicio/inicio';
-import { Encuesta } from './features/productos/pages/encuesta/encuesta';
-import { Contacto } from './features/productos/pages/contacto/contacto';
-import { Notfound } from './features/productos/pages/notfound/notfound';
+import { Inicio } from './features/productos/pages/inicio/inicio.component';
+import { Notfound } from './features/productos/pages/notfound/notfound.component';
+import { Encuesta } from './features/productos/pages/encuesta/encuesta.component';
+import { Contacto } from './features/productos/pages/contacto/contacto.component';
 
 export const routes: Routes = [
   {

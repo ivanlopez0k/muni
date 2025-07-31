@@ -7,10 +7,10 @@ import { Formulario } from '../../models';
   providedIn: 'root'
 })
 export class ContactoService {
-  private Url = "locahost no se q (preguntar a ivo)"
+  private Url = "http://localhost:4200/encuesta/send"
   private http = inject(HttpClient)
 
-  submitForm(formulario : Formulario): Observable<Formulario> {
+  enviarFormulario(formulario : Formulario): Observable<Formulario> {
     return this.http.post<Formulario>(`${this.Url}`, formulario)
   }
 
