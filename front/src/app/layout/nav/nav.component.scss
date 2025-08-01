@@ -80,10 +80,16 @@
   border-radius: 5px;
   padding: .5rem 2rem;
   cursor: pointer;
-  border: 1px solid #969696;
+  text-decoration: none;
+  background-color: #ffffffe3;
   color: rgb(32, 159, 209);
 }
 
+.boton_login:hover{
+  background-color: #fff;
+  transition: .1s;
+  scale: 1.03;
+}
 
 @media (max-width: 768px) {
   .nav {
