@@ -17,6 +17,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { provideNativeDateAdapter } from '@angular/material/core';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { CustomInputComponent } from '../../components/custom-input/custom-input.component';
+import { EncuestaInpu } from '../../components/encuesta-inpu/encuesta-inpu';
 
 export interface Turista{
   nombre: FormControl<string>,
@@ -142,7 +143,7 @@ export interface Calificacion{
     MatFormFieldModule,
     MatDatepickerModule,
     MatCheckboxModule,
-    CustomInputComponent
+    EncuestaInpu
   ],
   providers:[provideNativeDateAdapter()],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -269,11 +270,11 @@ export class Encuesta {
   formularioCalificacion: FormGroup<Calificacion> = this.fb.group({
     Calificacion_MC: this.fb.group({
       calificacion_MC: this.fb.control(''),
-      porque: this.fb.control('')
+      porque: this.fb.control('', Validators.required)
     }),
     Recomendaria: this.fb.group({
       recomendaria: this.fb.control(''),
-      porque: this.fb.control('')
+      porque: this.fb.control('', Validators.required)
     })
   });
 
