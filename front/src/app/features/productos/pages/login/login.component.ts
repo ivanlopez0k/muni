@@ -3,6 +3,7 @@ import { FormGroup, FormControl,NonNullableFormBuilder, ReactiveFormsModule, Val
 import { LoginService } from '../../services/login/login';
 import { CustomInputComponent } from '../../components/custom-input/custom-input.component';
 import { Router } from '@angular/router';
+import { Admin } from '../../models';
 
 export interface FormLogin {
   user: FormControl<string>;
@@ -28,7 +29,7 @@ export class Login {
   login(){
     if(this.form.invalid) return;
 
-    const datosUsuario = this.form.getRawValue();
+    const datosUsuario : Admin = this.form.getRawValue();
     this.LoginService.login(datosUsuario).subscribe({
       next: (res) => {
         localStorage.setItem('admin',JSON.stringify(res));

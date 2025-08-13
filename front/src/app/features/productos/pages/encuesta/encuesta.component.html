@@ -1,1 +1,334 @@
-<p>encuesta works!</p>
+<mat-stepper
+  class="contenedor_formularios"
+  [orientation]="(stepperOrientation | async)!">
+  <!-- ENcuesta turista -->
+  <mat-step [stepControl]="formularioTurista" label="Turismo">
+    <form class="formulario_turismo" [formGroup]="formularioTurista">
+      <div class="contenedor_titulo">
+        <h2 class="titulo_formulario">ENCUESTA PARA TURISTAS</h2>
+        <h3 class="subtitulo_formulario">Complete la encuesta con la siguiente información:</h3>
+      </div>
+        <div class="nombreEdad_formulario">
+          <mat-form-field class="inputNombre_formulario" >
+            <mat-label >Nombre Completo</mat-label>
+            <input  matInput placeholder="Introduzca su nombre" formControlName="nombre">
+          </mat-form-field>
+
+          <mat-form-field class="inputEdad_formulario" >
+            <mat-label>Edad</mat-label>
+            <input  type="number" matInput placeholder="Introduzca su edad" formControlName="edad" required>
+          </mat-form-field>
+        </div>
+
+        <div class="fecha_formulario">
+          <mat-form-field required>
+            <mat-label>Estadia en Mina Clavero</mat-label>
+            <mat-date-range-input [rangePicker]="picker">
+              <input matStartDate  placeholder="Ingreso" formControlName="ingreso">
+              <input  matEndDate placeholder="Salida" formControlName="salida">
+            </mat-date-range-input>
+            <mat-hint class="fechas">MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-date-range-picker #picker></mat-date-range-picker>
+          </mat-form-field>
+        </div>
+
+        <div class="sexo_formulario">
+          <label class="labels_formulario">Sexo:</label>
+          <mat-radio-group class="radiogroup_formulario" formControlName="sexo">
+            <mat-radio-button value="masculino">Masculino</mat-radio-button>
+            <mat-radio-button value="femenino">Femenino</mat-radio-button>
+          </mat-radio-group>
+        </div>
+
+        <div class="procendencia_formulario">
+          <label class="labels_formulario">Procedencia:</label>
+          <mat-radio-group class="radiogroup_formulario" formControlName="procedencia" required>
+            <mat-radio-button value="Ciudad de cordoba">ciudad de Cordoba</mat-radio-button>
+            <mat-radio-button value="Otra localidad de Cordoba">Otra localidad de Cordoba</mat-radio-button>
+            <mat-radio-button value="Otra provincia">Otra Provincia</mat-radio-button>
+            <mat-radio-button value="Otra Pais">Otro Pais</mat-radio-button>
+          </mat-radio-group>
+          @switch (formularioTurista.get('procedencia')?.value) {
+            @case ('Otra provincia') {
+
+              <div>
+                <label>Introduzca otra provinvia</label>
+                <input type="text" >
+              </div>
+            }
+          }
+          <!-- <div [ngSwitch]="formularioTurista.get('procedencia')?.value">
+            <div *ngSwitchCase="'Otra provincia'" >
+              <app-custom-input [label]="'Introduzca la Provincia'" [control]="formularioTurista.controls.otraProvincia" [placeholder]="'Provincia'" [type]="'text'"/>
+            </div>
+            <div *ngSwitchCase="'Otra localidad de Cordoba'" >
+              <app-custom-input [label]="'Otra localidad de Cordoba'" [control]="formularioTurista.controls.otraLocalidad" [placeholder]="'Localidad de cordoba'" [type]="'text'" />
+            </div>
+            <div *ngSwitchCase="'Otra Pais'" >
+              <app-custom-input [label]="'Introduzca el pais'" [control]="formularioTurista.controls.otroPais"   [placeholder]="'pais'" [type]="'text'" />
+            </div>
+          </div> -->
+        </div>
+
+        <div class="acompaniantes_formulario">
+          <label class="labels_formulario">¿Ud. vino a Mina Clavero?:</label>
+          <mat-radio-group class="radiogroup_formulario" formControlName="acompaniantes" required>
+            <mat-radio-button value="Solo">Solo</mat-radio-button>
+            <mat-radio-button value="Con su familia">Con su familia</mat-radio-button>
+            <mat-radio-button value="Con amigos">Con amigos</mat-radio-button>
+            <mat-radio-button value="Otros">Otros:</mat-radio-button>
+          </mat-radio-group>
+
+          <div [ngSwitch]="formularioTurista.get('acompaniantes')?.value">
+            <div *ngSwitchCase="'Otros'">
+              <app-custom-input [label]="'Otro acompañante'" [control]="formularioTurista.controls.otrosAcompaniantes" [placeholder]="'Acompañante'" [type]="'text'"/>
+            </div>
+          </div>
+        </div>
+
+      <div>
+        <button class="boton_siguiente_formulario" matButton="filled" matStepperNext >Siguiente</button>
+      </div>
+    </form>
+  </mat-step>
+
+  <!-- Encuesta Difusion -->
+  <mat-step [stepControl]="formularioDifusion" label="Difusion">
+    <form class="formulario_difusion" [formGroup]="formularioDifusion">
+        <div class="contenedor_titulo">
+          <h2 class="titulo_formulario" >¿A través de qué medio conoció el destino Mina Clavero?</h2>
+          <h3 class="subtitulo_formulario">(Puede marcar más de una opción.)</h3>
+        </div>
+        <div class="redes_formulario">
+          <mat-checkbox  class="redes" formControlName="television">Television</mat-checkbox>
+          <mat-checkbox class="redes" formControlName="pagina">Pagina Web</mat-checkbox>
+          <mat-checkbox class="redes" formControlName="radio">Radio</mat-checkbox>
+          <mat-checkbox class="redes" formControlName="graficos">Graficos</mat-checkbox>
+          <mat-checkbox class="redes" formControlName="facebook">Facebook</mat-checkbox>
+          <mat-checkbox class="redes" formControlName="recomendacion">Recomendacion</mat-checkbox>
+            <app-custom-input [label]="'Otro motivo'" [control]="formularioMotivo.controls.otros" [placeholder]="'motivo'" [type]="'text'"/>
+        </div>
+      <div class="contenedor_botones">
+        <button class="boton_volver_formulario" matButton matStepperPrevious>Anterior</button>
+        <button class="boton_siguiente_formulario" matButton="filled" matStepperNext >Siguiente</button>
+      </div>
+    </form>
+  </mat-step>
+
+  <!-- Formulario Motivos -->
+  <mat-step [stepControl]="formularioMotivo" label="Motivos">
+    <form class="formulario_motivos" [formGroup]="formularioMotivo">
+      <div class="contenedor_titulo">
+        <h2 class="titulo_formulario">¿Por qué motivo eligió Mina Clavero para pasar sus vacaciones?</h2>
+        <h3 class="subtitulo_formulario">(Puede marcar más de una opción.)</h3>
+      </div>
+      <div class="motivos_formulario">
+          <mat-checkbox class="motivos" formControlName="conocia">Porque ya conocia y le gusto el lugar</mat-checkbox>
+          <mat-checkbox class="motivos" formControlName="recomendacion">Porque se lo recomendaron</mat-checkbox>
+          <mat-checkbox class="motivos" formControlName="promocion">Porque vio alguna promocion en los medios</mat-checkbox>
+          <mat-checkbox class="motivos" formControlName="tranquilidad">Porque es un lugar tranquilo para la familia</mat-checkbox>
+          <mat-checkbox class="motivos" formControlName="paisajes">Por sus paisajes</mat-checkbox>
+          <mat-checkbox class="motivos" formControlName="eventos">Por sus eventos</mat-checkbox>
+          <mat-checkbox class="motivos" formControlName="amabilidad">Por la amabilidad de los vecinos</mat-checkbox>
+          <app-custom-input
+            [label]="'Otro motivo'"
+            [control]="formularioMotivo.controls.otros"
+            [placeholder]="'motivo'"
+            [type]="'text'"
+          />
+        </div>
+
+      <div class="contenedor_botones">
+        <button class="boton_volver_formulario" matButton matStepperPrevious>Anterior</button>
+        <button class="boton_siguiente_formulario" matButton="filled" matStepperNext >Siguiente</button>
+      </div>
+    </form>
+  </mat-step>
+
+  <!-- Formulario Hospedaje -->
+  <mat-step [stepControl]="formularioHospedaje" label="Hospedaje">
+    <form class="formulario_hospedaje" [formGroup]="formularioHospedaje">
+      <div formGroupName="Reserva">
+        <h2 class="titulo_formulario">En cuanto a su Hospedaje en Mina Clavero</h2>
+        <h3 class="subtitulo_formulario"> ¿Usted llegó?</h3>
+          <mat-radio-group class="radiogroup_formulario" formControlName="reserva" required>
+            <mat-radio-button value="Sin reserva">Sin reserva</mat-radio-button>
+            <mat-radio-button value="Con reserva">Con reserva</mat-radio-button>
+          </mat-radio-group>
+          @if(formularioHospedaje.get('Reserva.reserva')?.value === 'Con reserva') {
+            <label>¿A través de qué medio hizo la reserva?</label>
+            <input formControlName="medioReserva" type="text" placeholder="Escriba aquí">
+          }
+      </div>
+      <div formGroupName="Tipo_Hospedaje">
+          <h2 class="subtitulo_formulario">¿Qué tipo de Hospedaje a tomado?</h2>
+          <mat-radio-group class="radiogroup_formulario" formControlName="tipo_hospedaje" required>
+            <mat-radio-button value="Hotel">En un Hotel</mat-radio-button>
+            <mat-radio-button value="Cabaña">En una Cabaña</mat-radio-button>
+            <mat-radio-button value="Hosteria">En una Hosteria</mat-radio-button>
+            <mat-radio-button value="Camping">En un Camping</mat-radio-button>
+            <mat-radio-button value="Casa de alquiler">Casa alquilada</mat-radio-button>
+            <mat-radio-button value="Otro">Otro tipo de hospedaje</mat-radio-button>
+          </mat-radio-group>
+          @if(formularioHospedaje.get('Tipo_Hospedaje.tipo_hospedaje')?.value === 'Otro'){
+            <label>¿Cual?</label>
+            <input formControlName="medioReserva" type="text" placeholder="Escriba aquí">
+          }
+      </div>
+      <div formGroupName="Calificacion_Hospedaje">
+        <h2 class="subtitulo_formulario">Cómo es el servicio en el hospedaje que ha contratado?</h2>
+        <mat-radio-group class="radiogroup_formulario" formControlName="calificacion_hospedaje" required>
+            <mat-radio-button value="Excelente">Excelente</mat-radio-button>
+            <mat-radio-button value="Muy buena">Muy buena</mat-radio-button>
+            <mat-radio-button value="Buena">Buena</mat-radio-button>
+            <mat-radio-button value="Regular">Regular</mat-radio-button>
+            <mat-radio-button value="Mala">Mala</mat-radio-button>
+            <mat-radio-button value="Muy mala">Muy mala</mat-radio-button>
+            <mat-radio-button value="Pesima">Pesima</mat-radio-button>
+        </mat-radio-group>
+      </div>
+      <div formGroupName="Material_Informativo">
+        <h2 class="subtitulo_formulario">¿Recibió material informativo de la Secretaría de Turismo en el hospedaje donde se alojó?</h2>
+        <mat-radio-group class="radiogroup_formulario" formControlName="recibioMaterial" required>
+            <mat-radio-button value="No">No</mat-radio-button>
+            <mat-radio-button value="Si">Si</mat-radio-button>
+          </mat-radio-group>
+          @if(formularioHospedaje.get('Material_Informativo.recibioMaterial')?.value === 'Si'){
+            <label>¿Cual?</label>
+            <input formControlName="siRecibio" type="text" placeholder="Escriba aquí">
+          }
+      </div>
+      <div class="contenedor_botones">
+        <button class="boton_volver_formulario" matButton matStepperPrevious>Anterior</button>
+        <button class="boton_siguiente_formulario" matButton="filled" matStepperNext >Siguiente</button>
+      </div>
+    </form>
+  </mat-step>
+
+  <!-- Formulario Oficina -->
+  <mat-step [stepControl]="formularioOficina" label="Oficina">
+    <form class="formulario_oficina" [formGroup]="formularioOficina">
+      <h2 class="titulo_formulario">Oficinas de Turismo de Mina Clavero</h2>
+
+      <div formGroupName="Oficina">
+        <h3 class="subtitulo_formulario">¿Usted pidió información en Mina Clavero? ¿En que oficina lo hizo?</h3>
+        <mat-radio-group class="radiogroup_formulario" formControlName="oficinaOption" required>
+            <mat-radio-button value="No">No</mat-radio-button>
+            <mat-radio-button value="Oficina de la Rotonda de Ingreso">Oficina de la Rotonda de Ingreso</mat-radio-button>
+            <mat-radio-button value="Oficina de Plazoleta Merlo">Oficina de Plazoleta Merlo</mat-radio-button>
+            <mat-radio-button value="Oficina de la Terminal">Oficina de la Terminal</mat-radio-button>
+        </mat-radio-group>
+      </div>
+
+      @if (formularioOficina.get('Oficina.oficinaOption')?.value === 'No') {
+        <div>Desaparece todo</div>
+      }@else{
+        <div formGroupName="Tipo_Informacion">
+          <h3 class="subtitulo_formulario">¿Qué tipo de información solicitó en las oficinas de Turismo de Mina Clavero?</h3>
+          <mat-checkbox class="motivos" formControlName="hospedaje">Hospedaje</mat-checkbox>
+          <mat-checkbox class="motivos" formControlName="paseos">Paseos</mat-checkbox>
+          <mat-checkbox class="motivos" formControlName="eventos">Eventos</mat-checkbox>
+          <mat-checkbox class="motivos" formControlName="gastronomia">Gastronomia</mat-checkbox>
+          <mat-checkbox class="motivos" formControlName="turismo_aventura">Turismo Aventura</mat-checkbox>
+          <mat-checkbox class="motivos" formControlName="servicios">Servicios</mat-checkbox>
+          <mat-checkbox class="motivos" formControlName="rutas">Rutas</mat-checkbox>
+          <label>Otra informacion:</label>
+            <input formControlName="otros" type="text" placeholder="Escriba aquí">
+        </div>
+
+        <div formGroupName="Medio_Informacion">
+          <h3 class="subtitulo_formulario">¿A través de que medio solicitó información en las Oficinas de Turismo de Mina Clavero?</h3>
+          <mat-checkbox class="motivos" formControlName="personalmente">Personalmente</mat-checkbox>
+          <mat-checkbox class="motivos" formControlName="email">Vía Email</mat-checkbox>
+          <mat-checkbox class="motivos" formControlName="facebook">Vía Facebook</mat-checkbox>
+          <mat-checkbox class="motivos" formControlName="telefonica">Vía Telefónica</mat-checkbox>
+          <label>Otros:</label>
+            <input formControlName="otros" type="text" placeholder="Escriba aquí">
+        </div>
+
+        <div formGroupName="Tipo_Material">
+          <h3 class="subtitulo_formulario">¿Qué tipo de material se le entregó en las Oficinas de Turismo?</h3>
+          <mat-checkbox class="motivos" formControlName="folletos">Folletos</mat-checkbox>
+          <mat-checkbox class="motivos" formControlName="revistas">Revistas</mat-checkbox>
+          <mat-checkbox class="motivos" formControlName="planos">Planos</mat-checkbox>
+          <mat-checkbox class="motivos" formControlName="calcomanias">Calcomanías</mat-checkbox>
+          <mat-checkbox class="motivos" formControlName="guias">Guías de Servicios</mat-checkbox>
+        </div>
+
+        <div formGroupName="Calificacion_Informacion">
+          <h3 class="subtitulo_formulario">Cómo evalua el tipo el tipo de información brindada por las Oficinas de Turismo de Mina Clavero?</h3>
+          <mat-radio-group class="radiogroup_formulario" formControlName="calificacion" required>
+            <mat-radio-button value="Excelente">Excelente</mat-radio-button>
+            <mat-radio-button value="Muy Buena">muy Buena</mat-radio-button>
+            <mat-radio-button value="Buena">Buena</mat-radio-button>
+            <mat-radio-button value="Regular">Regular</mat-radio-button>
+            <mat-radio-button value="Mala">Mala</mat-radio-button>
+            <mat-radio-button value="Muy mala">Muy mala</mat-radio-button>
+            <mat-radio-button value="Pesima">Pesima</mat-radio-button>
+        </mat-radio-group>
+        </div>
+
+        <div formGroupName="Otra_Informacion">
+          <h3 class="subtitulo_formulario">Aparte de la información solicitada, ¿Se le brindó algún otro tipo de información de su interés?</h3>
+          <mat-radio-group class="radiogroup_formulario" formControlName="informacion" required>
+            <mat-radio-button value="Si">Si</mat-radio-button>
+            <mat-radio-button value="No">No</mat-radio-button>
+        </mat-radio-group>
+        @if(formularioOficina.get('Otra_Informacion.informacion')?.value === 'Si'){
+            <label>Cuales?</label>
+            <input formControlName="otraInformacion" type="text" placeholder="Escriba aquí">
+        }
+        </div>
+
+        <div formGroupName="Que_Informacion">
+          <h3 class="subtitulo_formulario">Qué información se le brindó?</h3>
+          <mat-checkbox class="motivos" formControlName="espectaculos_MC">Espectáculos en Mina Clavero</mat-checkbox>
+          <mat-checkbox class="motivos" formControlName="espectaculos_cercanos">Espectáculos en localidades cercanas</mat-checkbox>
+          <mat-checkbox class="motivos" formControlName="recreacion">Recreación</mat-checkbox>
+          <mat-checkbox class="motivos" formControlName="deportivas">Actividades Deportivas</mat-checkbox>
+          <mat-checkbox class="motivos" formControlName="aventuras">Turismo Aventura</mat-checkbox>
+          <mat-checkbox class="motivos" formControlName="paseos">Paseos</mat-checkbox>
+          <label>Otros</label>
+          <input formControlName="otros" type="text" placeholder="Escriba aquí">
+        </div>
+      }
+
+      <div class="contenedor_botones">
+        <button class="boton_volver_formulario" matButton matStepperPrevious>Anterior</button>
+        <button class="boton_siguiente_formulario" matButton="filled" matStepperNext >Siguiente</button>
+      </div>
+    </form>
+  </mat-step>
+
+  <!-- Formulario Calificacion -->
+  <mat-step [stepControl]="formularioCalificacion" label="Calificacion">
+    <form class="formulario_calificacion" [formGroup]="formularioCalificacion">
+      <h2 class="titulo_formulario">Calificacion de mina clavero</h2>
+      <div formGroupName="Calificacion_MC">
+        <h3 class="subtitulo_formulario">¿Considera a Mina Clavero como un destino completo en cuanto a su oferta y servicios?</h3>
+        <mat-radio-group class="radiogroup_formulario" formControlName="Calificacion_MC" required>
+            <mat-radio-button value="Si">Si</mat-radio-button>
+            <mat-radio-button value="No">No</mat-radio-button>
+        </mat-radio-group>
+        <label>Porque?</label>
+        <input formControlName="porque" type="text" placeholder="Escriba aquí" required>
+      </div>
+      <div formGroupName="Recomendaria">
+        <h3 class="subtitulo_formulario">¿Recomendaría Mina Clavero como destino turístico?</h3>
+        <mat-radio-group class="radiogroup_formulario" formControlName="recomendaria" required>
+            <mat-radio-button value="Si">Si</mat-radio-button>
+            <mat-radio-button value="No">No</mat-radio-button>
+        </mat-radio-group>
+        <label class="labels_solitarios">Porque?</label>
+        <input class="inputs_solitarios" formControlName="porque" type="text" placeholder="Escriba aquí" required>
+      </div>
+      <div class="contenedor_botones">
+        <button class="boton_volver_formulario" matButton matStepperPrevious>Anterior</button>
+        <button  matButton="filled" matStepperNext >Enviar encuesta</button>
+      </div>
+    </form>
+  </mat-step>
+
+</mat-stepper>
+
