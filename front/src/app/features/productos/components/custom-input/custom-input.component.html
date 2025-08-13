@@ -1,11 +1,12 @@
-<div>
+<div class="contenedor_labelInput">
   @if (label()) {
-    <label>{{ label() }}</label>
+    <label class="label">{{ label() }}</label>
   }
 
   @switch (type()) {
     @case ('textarea') {
       <textarea
+        class="textarea"
         [placeholder]="placeholder()"
         [formControl]="control()"
         (blur)="onTouched()"
@@ -14,6 +15,7 @@
     }
     @default {
       <input
+        class="input"
         [type]="type()"
         [placeholder]="placeholder()"
         [formControl]="control()"
