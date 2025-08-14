@@ -1,8 +1,9 @@
-<div class="">
-    <div class="">
-        <h3 class="">Iniciar Sesión</h3>
+<div class="MAINBOX">
+    <div class="BOXINICIO">
+        <h3 class="TITULO">
+          Iniciar Sesión</h3>
         <form [formGroup]="form" (ngSubmit)="login()">
-          <div class="">
+          <div class="BOXUSUARIO">
             <app-custom-input
               [label]="'Usuario'"
               [control]="form.controls.user"
@@ -10,8 +11,8 @@
               [placeholder]="'Ingrese el usuario'"
             />
           </div>
-          <div class="">
-            <app-custom-input
+          <div class="BOXCONTRASEÑA">
+            <app-custom-input 
               [label]="'Contraseña'"
               [control]="form.controls.password"
               [type]="'text'"
