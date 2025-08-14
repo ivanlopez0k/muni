@@ -1,0 +1,50 @@
+
+
+.main{
+  background: url(https://www.minaclavero.gov.ar/admin/wp-content/uploads/2021/01/Mina-Clavero-te-cuida-3-e1609767724216.jpg);
+  width: 100%;
+  height: 91vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contenedor_main{
+  border: 1px solid #ffffff25;
+  background-color: rgba(255, 255, 255, 0.068);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  width: 80%;
+  height: auto;
+  padding: 2rem 0;
+  display: flex;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.contenido_main{
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.contenedor_main_titulo{
+  color: #fff;
+  font-size: 2.5rem;
+}
+
+.contenedor_main_parrafo{
+  font-size: 1.1rem;
+  color: #ffffffde;
+}
+
+.contenedor_main_boton{
+  border: none;
+  padding: 5px 10px;
+  border-radius: 10px;
+  cursor: pointer;
+}

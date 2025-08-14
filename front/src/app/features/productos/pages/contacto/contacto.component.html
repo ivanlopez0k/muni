@@ -1,0 +1,26 @@
+<div>
+  <div>
+    <form [formGroup]="form" (ngSubmit)="enviarFormulario()">
+        <h2>Comunicate con nosotros</h2>
+        <app-custom-input
+          [label]="'Nombre y apellido'"
+          [control]="form.controls.name"
+          [type]="'text'"
+          [placeholder]="'Ingrese su nombre y apellido...'"
+        />
+        <app-custom-input
+          [label]="'Correo Electronico'"
+          [control]="form.controls.email"
+          [type]="'text'"
+          [placeholder]="'Ingrese su correo...'"
+        />
+        <app-custom-input
+          [label]="'Dejanos tu mensaje'"
+          [control]="form.controls.message"
+          [type]="'textarea'"
+          [placeholder]="'Escriba su mensaje...'"
+        />
+        <button type="submit" [disabled]="!form.valid">Enviar</button>
+    </form>
+  </div>
+</div>
