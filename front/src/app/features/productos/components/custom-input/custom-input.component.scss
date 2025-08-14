@@ -1,4 +1,86 @@
-.input_error{
-  color: rgb(202, 0, 0);
+:host {
+  display: block;
+  width: 100%;
+}
+
+.contenedor_labelInput {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 500px;
+  gap: 0.5rem;
+  margin: 0 auto;
+}
+
+.label {
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+}
+
+.input,
+.textarea {
+  width: 100%;
+  color: #fff;
+  background-color: transparent;
+  border: 1.8px solid #ffffffcc;
+  border-radius: 0.8rem;
+  padding: 0.5rem 0.75rem;
+  font-size: 15px;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.input:focus-visible,
+.textarea:focus-visible {
+  border-color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 0 0 3px color-mix(in srgb, #cdddf7 30%, transparent);
+}
+
+.input::placeholder,
+.textarea::placeholder {
+  color: #ffffffaa;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.input_error {
+  color: rgb(255, 54, 54);
+  font-size: 0.85rem;
+  margin-top: -0.25rem;
+}
+
+@media (max-width: 768px) {
+  .contenedor_labelInput {
+    max-width: 92%;
+    gap: 0.4rem;
+    margin: 0;
+  }
+}
+
+/* 📱 Responsivo */
+@media (max-width: 480px) {
+  .contenedor_labelInput {
+    max-width: 92%;
+    gap: 0.4rem;
+    margin: 0;
+  }
+
+  .label {
+    font-size: 1rem;
+  }
+
+  .input,
+  .textarea {
+    font-size: 14px;
+    padding: 0.45rem 0.65rem;
+  }
 }
 
