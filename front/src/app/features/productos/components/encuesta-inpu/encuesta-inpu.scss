@@ -1,0 +1,44 @@
+.contenedor_labelInput{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: .5rem;
+}
+
+.label{
+  color:rgb(100% 100% 100%);
+  font-family:Roboto;
+  font-size:14px;
+  letter-spacing:0.256px;
+  line-height: 20px;
+  padding: 0 0 0 1rem;
+}
+
+.input {
+  color: #fff;
+  appearance: none;
+  background-color: #f9fafb00;
+  border: 2px solid #ffffff;
+  border-radius: 1rem;
+  padding: 0.3rem 0.75rem;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.input:focus-visible {
+  border-color: #ffffff;
+  box-shadow: 0 0 0 3px color-mix(in srgb, #cdddf7 30%, transparent);
+}
+
+.input::placeholder {
+  color: #ffffff;
+  font-size:14px;
+  font-weight: 400;
+}
+
+
+.input_error{
+  color: rgb(255, 54, 54);
+}
+

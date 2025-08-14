@@ -3,6 +3,7 @@ import { Inicio } from './features/productos/pages/inicio/inicio.component';
 import { Notfound } from './features/productos/pages/notfound/notfound.component';
 import { Encuesta } from './features/productos/pages/encuesta/encuesta.component';
 import { Contacto } from './features/productos/pages/contacto/contacto.component';
+import { Login} from './features/productos/pages/login/login.component';
 
 export const routes: Routes = [
   {
@@ -16,6 +17,10 @@ export const routes: Routes = [
   {
     path:'contacto',
     component:Contacto
+  },
+  {
+    path:'login',
+    component: Login
   },
   {
     path:'**',
