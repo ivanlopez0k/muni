@@ -8,7 +8,7 @@
 .nav {
   background-color: rgba(21, 159, 223, 0.5);
   backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px); /* Para compatibilidad con Safari */
+  -webkit-backdrop-filter: blur(10px);
   width: 100%;
   height: 5rem;
   position: fixed;
@@ -51,8 +51,9 @@
 }
 
 .imagen_nav {
-  width: 250px;
-  transition: width 0.3s ease;
+  width: 200px;
+  height: 80px;
+  object-fit: cover;
 }
 
 .menu-toggle {
@@ -63,11 +64,13 @@
   display: none;
   flex-direction: column;
   cursor: pointer;
-  position: absolute;
-  right: 20px;
-  top: 15px;
-  z-index: 1002;
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 2000;
+
 }
+
 
 .hamburger span {
   height: 3px;
@@ -107,17 +110,18 @@
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: auto; /* ocupa toda la pantalla */
-    padding: 5rem 0 0 0;
-    background-color: rgb(32, 159, 209);
+    height: auto;
     position: absolute;
-    top: 0;
+    top: 5rem;
     left: 0;
     opacity: 0;
     pointer-events: none;
     transform: translateY(-10px);
     transition: all 0.3s ease;
     z-index: 1001;
+    background-color: rgba(29, 126, 170, 0.623);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
   }
 
   .menu-toggle:checked ~ .nav .contenedor_nav {

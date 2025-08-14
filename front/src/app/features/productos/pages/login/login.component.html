@@ -1,8 +1,6 @@
 <div class="MAINBOX">
-    <div class="BOXINICIO">
-        <h3 class="TITULO">
-          Iniciar Sesión</h3>
-        <form [formGroup]="form" (ngSubmit)="login()">
+        <form class="formulario" [formGroup]="form" (ngSubmit)="login()">
+          <h3 class="TITULO">Iniciar Sesión</h3>
           <div class="BOXUSUARIO">
             <app-custom-input
               [label]="'Usuario'"
@@ -12,17 +10,16 @@
             />
           </div>
           <div class="BOXCONTRASEÑA">
-            <app-custom-input 
+            <app-custom-input
               [label]="'Contraseña'"
               [control]="form.controls.password"
               [type]="'text'"
               [placeholder]="'Ingrese la contraseña'"
             />
           </div>
-          <div>
-            <button [disabled]="!form.valid" type="submit">Ingresar</button>
+          <div >
+            <button class="boton" [disabled]="!form.valid" type="submit">Ingresar</button>
           </div>
         </form>
-    </div>
 </div>
 

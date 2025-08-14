@@ -12,7 +12,6 @@ html {
       primary: mat.$azure-palette,
       tertiary: mat.$blue-palette,
     ),
-    typography: Roboto,
     density: 0,
   ));
 }
@@ -27,8 +26,6 @@ body {
   // Angular Material's system-level CSS variables. Learn more about these
   // variables at https://material.angular.dev/guide/system-variables
   background-color: #000;
-  color: var(--mat-sys-on-surface);
-  font: var(--mat-sys-body-medium);
 
   // Reset the user agent margin.
   margin: 0;
@@ -214,4 +211,4 @@ template {
 }
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { margin: 0; }

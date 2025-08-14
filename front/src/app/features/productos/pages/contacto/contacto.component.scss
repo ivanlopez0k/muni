@@ -24,7 +24,10 @@
   gap: 1rem;
   padding: 2rem 1.5rem;
   border-radius: 10px;
+  animation: fadeIn 0.5s ease-in-out;
 }
+
+
 
 .titulo {
   color: #fff;
@@ -33,32 +36,42 @@
   line-height: 1.2;
 }
 
-/* Botón moderno */
 .boton {
-  background-color: #fff;
-  color: #0096d2;
+  background-color: #00bbd433;
+  color: white;
+  padding: 0.6rem 1rem;
   border: none;
-  padding: 0.75rem 1.25rem;
+  border-radius: 8px;
   font-size: 1rem;
-  font-family: 'Segoe UI', sans-serif;
-  border-radius: 10px;
+  font-weight: 500;
   cursor: pointer;
-  display: inline-block;
-  margin: 0 auto;
-  transition: background-color 0.3s ease, transform 0.2s ease;
+  transition: all 0.3s ease;
+  align-self: start;
 }
 
 .boton:hover {
-  background-color: #e0f3fa;
-  transform: translateY(-2px);
+  background-color: #00bcd4;
+  color: #fff; /* Blanco */
+  box-shadow: 0 4px 10px rgba(0, 188, 212, 0.4);
 }
 
 .boton:disabled {
-  background-color: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.2);
   cursor: not-allowed;
+  box-shadow: none;
 }
 
-/* Responsivo para tablets */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @media (max-width: 768px) {
   .titulo {
     font-size: 1.8rem;
@@ -69,7 +82,6 @@
   }
 }
 
-/* Responsivo para móviles */
 @media (max-width: 480px) {
   .titulo {
     font-size: 1.5rem;
