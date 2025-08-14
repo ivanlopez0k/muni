@@ -14,7 +14,7 @@ export class EncuestaService {
     return this.http.get<EncuestaUsuario[]>(this.apiUrl)
   }
 
-  UpdateEncuesta( encuestaUsuario : EncuestaUsuario ) : Observable<EncuestaUsuario>{
+  subirEncuesta( encuestaUsuario : EncuestaUsuario ) : Observable<EncuestaUsuario>{
     return this.http.post<EncuestaUsuario>(`${this.apiUrl}`, encuestaUsuario )
   }
 

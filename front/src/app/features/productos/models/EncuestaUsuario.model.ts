@@ -2,7 +2,16 @@ export interface EncuestaUsuario {
     id: Number,
 
     Turista: {
-        edad: string, sexo: string, procedencia: string, acompaniantes: string, ingreso: Date, salida: Date
+        edad: number,
+        sexo: string,
+        procedencia: string,
+        otraProvincia: string,
+        otraLocalidad: string,
+        otroPais: string,
+        acompaniantes: string,
+        otrosAcompaniantes:string,
+        ingreso: Date,
+        salida: Date
     },
     Difusion: {
         television: boolean,
@@ -11,7 +20,8 @@ export interface EncuestaUsuario {
         graficos: boolean,
         facebook: boolean,
         recomendacion: boolean,
-        otros: string},
+        otros: string
+      },
     Motivo: {
         conocia: boolean,
         recomendacion: boolean,
@@ -20,19 +30,22 @@ export interface EncuestaUsuario {
         paisajes: boolean,
         eventos: boolean,
         amabilidad: boolean,
-        otros:string},
+        otros:string
+      },
     Reserva: {
         reserva: string,
         medioReserva: string
     },
     Tipo_Hospedaje: {
-        tipo_hospedaje: string
+        tipo_hospedaje: string,
+        otro_hospedaje: string
     },
     Calificacion_Hospedaje: {
         calificacion_hospedaje: string
     },
     Material_Informativo: {
-        recibioMaterial: string
+        recibioMaterial: string,
+        siRecibio: string
     },
     Oficina: {
         oficinaOption: string
@@ -65,7 +78,8 @@ export interface EncuestaUsuario {
         calificacion:string
     },
     Otra_Informacion: {
-        informacion: string
+        informacion: string,
+        otraInformacion: string
     },
     Que_Informacion: {
         espectaculos_MC: boolean,
@@ -85,5 +99,4 @@ export interface EncuestaUsuario {
         porque: string
     },
     createdAt: Date;
-
 }

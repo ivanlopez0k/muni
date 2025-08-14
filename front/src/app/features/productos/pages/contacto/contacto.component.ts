@@ -2,6 +2,7 @@ import { Component, inject } from '@angular/core';
 import { FormControl, FormGroup, NonNullableFormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ContactoService } from '../../services/contacto/contacto';
 import { CustomInputComponent } from '../../components/custom-input/custom-input.component';
+import { Formulario } from '../../models';
 
 export interface ContenidoFormulario {
   name: FormControl<string>;
@@ -31,7 +32,7 @@ export class Contacto {
       return;
     }
 
-    const datosFormulario = this.form.getRawValue();
+    const datosFormulario : Formulario = this.form.getRawValue();
 
     this.contactoService.enviarFormulario(datosFormulario).subscribe({
       next: () => {
