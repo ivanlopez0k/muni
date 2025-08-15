@@ -2,11 +2,11 @@
   height: 5rem;
   position: relative;
   z-index: 1001;
-  background-color: #000;
+  background-color: #000000;
 }
 
 .nav {
-  background-color: rgba(21, 159, 223, 0.5);
+  background-color: rgba(77, 183, 233, 0.712);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   width: 100%;
@@ -80,22 +80,29 @@
   transition: 0.3s ease;
 }
 
-.boton_login{
+
+.boton_login {
+  text-decoration: none;
+  font-weight: 700;
+  background-color: #00bcd4;
+  color: #fff;
+  border: none;
   position: absolute;
   left: 90%;
-  border-radius: 5px;
+  border-radius: 15px;
   padding: .5rem 2rem;
+  font-size: 1rem;
   cursor: pointer;
-  text-decoration: none;
-  background-color: #ffffffe3;
-  color: rgb(9.8% 56% 75%);
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 188, 212, 0.4);
 }
 
-.boton_login:hover{
-  background-color: #fff;
-  transition: .1s;
-  scale: 1.03;
+.boton_login:hover {
+  background-color: #0097a7;
+  box-shadow: 0 6px 16px rgba(0, 188, 212, 0.6);
+  transform: translateY(-2px);
 }
+
 
 @media (max-width: 768px) {
   .nav {

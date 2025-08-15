@@ -9,6 +9,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-attachment: fixed;
 }
 
 :host ::ng-deep .mat-step-header .mat-step-label.mat-step-label-selected {
