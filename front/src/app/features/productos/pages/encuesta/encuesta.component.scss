@@ -43,14 +43,13 @@
 .formulario_hospedaje,
 .formulario_oficina,
 .formulario_calificacion{
-  border: 1px solid rgba(255, 255, 255, 0.151);
   background-color: rgba(32, 153, 209, 0.219);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   display: flex;
   flex-direction: column;
   padding:1rem;
-  border-radius: 10px;
+  border-radius: 5px;
 }
 
 .titulo_formulario{

@@ -15,11 +15,10 @@
 .contenedor_main {
   max-width: 750px;
   text-align: center;
-  border: 1px solid rgba(255, 255, 255, 0.151);
   background-color: rgba(32, 153, 209, 0.219);
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
-  border-radius: 16px;
+  border-radius: 3px;
   padding: 2rem;
   animation: fadeIn 0.8s ease-in-out;
 }
@@ -51,6 +50,7 @@
   cursor: pointer;
   transition: all 0.3s ease;
   box-shadow: 0 4px 10px rgba(0, 188, 212, 0.4);
+  text-decoration: none;
 }
 
 .contenedor_main_boton:hover {

@@ -4,6 +4,7 @@ import { Notfound } from './features/productos/pages/notfound/notfound.component
 import { Encuesta } from './features/productos/pages/encuesta/encuesta.component';
 import { Contacto } from './features/productos/pages/contacto/contacto.component';
 import { Login} from './features/productos/pages/login/login.component';
+import { Dashboard } from './features/productos/pages/dashboard/dashboard.component';
 
 export const routes: Routes = [
   {
@@ -23,7 +24,12 @@ export const routes: Routes = [
     component: Login
   },
   {
+    path: 'dashboard',
+    component: Dashboard
+  },
+  {
     path:'**',
     component:Notfound,
-  }
+  },
+
 ];
