@@ -1,6 +1,11 @@
 require('dotenv').config();
 
 const logger = require('../utils/winston.logger');
+/**
+ * To add new configuration create a new file in
+ * the ./config folder, define the variable as an
+ * object, export it and then import the file in here.
+ */
 
 const config = {
   development: {
@@ -8,7 +13,7 @@ const config = {
     username: process.env.DB_USERNAME,
     password: process.env.DB_PASSWORD,
     database: process.env.DB_DATABASE,
-    port: process.env.DB_PORT,
+    port: 3306,
     host: process.env.DB_HOST,
     dialect: 'mysql',
     operatorsAliases: '0',
@@ -18,7 +23,7 @@ const config = {
     username: process.env.DB_USERNAME,
     password: process.env.DB_PASSWORD,
     database: process.env.DB_DATABASE,
-    port: process.env.DB_PORT,
+    port: 3306,
     host: process.env.DB_HOST,
     dialect: 'mysql',
     operatorsAliases: '0',
@@ -28,9 +33,9 @@ const config = {
     username: process.env.DB_USERNAME,
     password: process.env.DB_PASSWORD,
     database: process.env.DB_DATABASE,
-    port: process.env.DB_PORT,
+    port: 3306,
     host: process.env.DB_HOST,
-    dialect: 'mysql', 
+    dialect: 'mysql',
     operatorsAliases: '0',
   },
 };
