@@ -66,7 +66,7 @@ export class Dashboard implements OnInit, AfterViewInit {
   constructor(private encuestaService: EncuestaService) {}
 
   ngOnInit() {
-    this.encuestaService.obtenerEncuesta().subscribe({
+    this.encuestaService.GetEncuesta().subscribe({
       next: (data) => {
         this.encuesta = data;
         this.encuestaSource.data = data;
