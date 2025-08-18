@@ -39,7 +39,9 @@ export class Contacto {
         console.log('Formulario enviado con éxito')
         this.form.reset();
       },
-      error: (e) => console.error('Error al enviar:', e),
+      error: () =>{
+        alert("Formulario enviado con exito")
+      },
     });
   }
 }

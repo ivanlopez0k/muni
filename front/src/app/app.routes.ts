@@ -5,6 +5,7 @@ import { Encuesta } from './features/productos/pages/encuesta/encuesta.component
 import { Contacto } from './features/productos/pages/contacto/contacto.component';
 import { Login} from './features/productos/pages/login/login.component';
 import { Dashboard } from './features/productos/pages/dashboard/dashboard.component';
+import { AuthGuard } from './utils/auth.guard';
 
 export const routes: Routes = [
   {
@@ -25,7 +26,8 @@ export const routes: Routes = [
   },
   {
     path: 'dashboard',
-    component: Dashboard
+    component: Dashboard,
+    canActivate: [AuthGuard]
   },
   {
     path:'**',

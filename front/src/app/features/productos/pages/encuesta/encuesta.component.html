@@ -3,7 +3,7 @@
   [orientation]="(stepperOrientation | async)!">
   <!-- ENcuesta turista -->
   <mat-step [stepControl]="formularioTurista" label="Turismo">
-    <form class="formulario_turismo" [formGroup]="formularioTurista">
+    <form class="formulario_turismo" [formGroup]="formularioTurista" >
       <div class="contenedor_titulo">
         <h2 class="titulo_formulario">ENCUESTA PARA TURISTAS</h2>
         <h3 class="subtitulo_formulario">Complete la encuesta con la siguiente información:</h3>
@@ -319,7 +319,7 @@
 
   <!-- Formulario Calificacion -->
   <mat-step [stepControl]="formularioCalificacion" label="Calificacion">
-    <form class="formulario_calificacion" [formGroup]="formularioCalificacion">
+    <form class="formulario_calificacion" [formGroup]="formularioCalificacion" (ngSubmit)="enviarEncuesta()">
       <h2 class="titulo_formulario">Calificacion de mina clavero</h2>
       <div formGroupName="Calificacion_MC">
         <h3 class="subtitulo_formulario">¿Considera a Mina Clavero como un destino completo en cuanto a su oferta y servicios?</h3>
@@ -345,7 +345,7 @@
       </div>
       <div class="contenedor_botones">
         <button class="boton_volver_formulario" matButton matStepperPrevious>Anterior</button>
-        <button  matButton="filled" matStepperNext >Enviar encuesta</button>
+        <button  matButton="filled" matStepperNext type="submit">Enviar encuesta</button>
       </div>
     </form>
   </mat-step>

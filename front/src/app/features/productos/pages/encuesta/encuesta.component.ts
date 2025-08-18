@@ -278,7 +278,7 @@ export class Encuesta {
     })
   });
 
-  enviarEncuest() {
+  enviarEncuesta() {
   const encuestaUsuario: EncuestaUsuario = {
     id: Date.now(),
 
@@ -306,7 +306,10 @@ export class Encuesta {
   };
 
   this.encuestaService.subirEncuesta(encuestaUsuario).subscribe({
-    next: () => console.log('Encuesta enviada con éxito'),
+    next: () => {
+      console.log('Encuesta enviada con éxito', encuestaUsuario)
+      alert('Encuesta enviada con exito')
+    },
     error: (e) => console.error('Error al enviar la encuesta:', e),
   });
   }
