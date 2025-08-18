@@ -282,25 +282,25 @@ export class Encuesta {
   const encuestaUsuario: EncuestaUsuario = {
     id: Date.now(),
 
-    Turista: this.formularioTurista.value as EncuestaUsuario['Turista'],
-    Difusion: this.formularioDifusion.value as EncuestaUsuario['Difusion'],
-    Motivo: this.formularioMotivo.value as EncuestaUsuario['Motivo'],
+    turista: this.formularioTurista.value as EncuestaUsuario['turista'],
+    difusion: this.formularioDifusion.value as EncuestaUsuario['difusion'],
+    motivo: this.formularioMotivo.value as EncuestaUsuario['motivo'],
 
-    Reserva: this.formularioHospedaje.value.Reserva as EncuestaUsuario['Reserva'],
-    Tipo_Hospedaje: this.formularioHospedaje.value.Tipo_Hospedaje as EncuestaUsuario['Tipo_Hospedaje'],
-    Calificacion_Hospedaje: this.formularioHospedaje.value.Calificacion_Hospedaje as EncuestaUsuario['Calificacion_Hospedaje'],
-    Material_Informativo: this.formularioHospedaje.value.Material_Informativo as EncuestaUsuario['Material_Informativo'],
+    reserva: this.formularioHospedaje.value.Reserva as EncuestaUsuario['reserva'],
+    tipo_hospedaje: this.formularioHospedaje.value.Tipo_Hospedaje as EncuestaUsuario['tipo_hospedaje'],
+    cali_hospedaje: this.formularioHospedaje.value.Calificacion_Hospedaje as EncuestaUsuario['cali_hospedaje'],
+    mat_informativo: this.formularioHospedaje.value.Material_Informativo as EncuestaUsuario['mat_informativo'],
 
-    Oficina: this.formularioOficina.value.Oficina as EncuestaUsuario['Oficina'],
-    Tipo_Informacion: this.formularioOficina.value.Tipo_Informacion as EncuestaUsuario['Tipo_Informacion'],
-    Medio_Informacion: this.formularioOficina.value.Medio_Informacion as EncuestaUsuario['Medio_Informacion'],
-    Tipo_Material: this.formularioOficina.value.Tipo_Material as EncuestaUsuario['Tipo_Material'],
-    Calificacion_Informacion: this.formularioOficina.value.Calificacion_Informacion as EncuestaUsuario['Calificacion_Informacion'],
-    Otra_Informacion: this.formularioOficina.value.Otra_Informacion as EncuestaUsuario['Otra_Informacion'],
-    Que_Informacion: this.formularioOficina.value.Que_Informacion as EncuestaUsuario['Que_Informacion'],
+    oficina: this.formularioOficina.value.Oficina as EncuestaUsuario['oficina'],
+    tipo_informacion: this.formularioOficina.value.Tipo_Informacion as EncuestaUsuario['tipo_informacion'],
+    medio_informacion: this.formularioOficina.value.Medio_Informacion as EncuestaUsuario['medio_informacion'],
+    tipo_material: this.formularioOficina.value.Tipo_Material as EncuestaUsuario['tipo_material'],
+    cali_informacion: this.formularioOficina.value.Calificacion_Informacion as EncuestaUsuario['cali_informacion'],
+    otra_info: this.formularioOficina.value.Otra_Informacion as EncuestaUsuario['otra_info'],
+    que_info: this.formularioOficina.value.Que_Informacion as EncuestaUsuario['que_info'],
 
-    Calificacion_MC: this.formularioCalificacion.value.Calificacion_MC as EncuestaUsuario['Calificacion_MC'],
-    Recomendaria: this.formularioCalificacion.value.Recomendaria as EncuestaUsuario['Recomendaria'],
+    cali_mc: this.formularioCalificacion.value.Calificacion_MC as EncuestaUsuario['cali_mc'],
+    recom: this.formularioCalificacion.value.Recomendaria as EncuestaUsuario['recom'],
 
     createdAt: new Date(),
   };

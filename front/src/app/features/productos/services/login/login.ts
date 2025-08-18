@@ -7,11 +7,12 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class LoginService {
-  private apiURL = "Creo que tengo que usar una environments o algo asi"
+  private apiURL = "http://localhost:3000/user/login"
 
   private hhtp = inject(HttpClient)
 
   login(usuario : Admin): Observable<Admin> {
+    console.log(usuario)
     return this.hhtp.post<Admin>(`${this.apiURL}`, usuario)
   }
 }

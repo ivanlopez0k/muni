@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
 import { Admin } from '../../models';
 
 export interface FormLogin {
-  user: FormControl<string>;
+  username: FormControl<string>;
   password:FormControl<string> ;
 }
 
@@ -22,7 +22,7 @@ export class Login {
   private router = inject(Router)
 
   form: FormGroup<FormLogin> = this.fb.group({
-    user: this.fb.control('', Validators.required),
+    username: this.fb.control('', Validators.required),
     password: this.fb.control('', Validators.required),
   })
 
