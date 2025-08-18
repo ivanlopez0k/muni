@@ -1,4 +1,3 @@
-// dashboard.component.ts
 import { Component, ViewChild, AfterViewInit, inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatTabsModule } from '@angular/material/tabs';
@@ -63,6 +62,7 @@ export class Dashboard implements OnInit, AfterViewInit {
         item.procedencia.toLowerCase().includes(filterValue)
       );
     });
+
   }
 
   ngAfterViewInit() {
