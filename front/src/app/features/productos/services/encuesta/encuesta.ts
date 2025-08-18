@@ -7,7 +7,7 @@ import { EncuestaUsuario } from '../../models';
   providedIn: 'root'
 })
 export class EncuestaService {
-  private apiUrl = "api en desarrollo..."
+  private apiUrl = "http://localhost:3000/survey/create"
   private http = inject(HttpClient)
 
   GetEncuesta(): Observable<EncuestaUsuario[]>{

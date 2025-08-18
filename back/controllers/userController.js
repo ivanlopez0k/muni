@@ -5,7 +5,7 @@ async function login(req, res){
 
     try{
         const login = await userService.login(username, password)
-        res.status(200).send(`Bienvenido, ${username}.Tu token: ${login}`)
+        res.status(200).json({message:`Bienvenido, ${username}.Tu token: ${login}`})
     }catch(err){
         res.status(400).json("Datos incorrectos!")
     }

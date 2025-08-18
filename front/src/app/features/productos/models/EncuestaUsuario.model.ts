@@ -1,7 +1,7 @@
 export interface EncuestaUsuario {
     id: Number,
 
-    Turista: {
+    turista: {
         edad: number,
         sexo: string,
         procedencia: string,
@@ -13,7 +13,7 @@ export interface EncuestaUsuario {
         ingreso: Date,
         salida: Date
     },
-    Difusion: {
+    difusion: {
         television: boolean,
         pagina: boolean,
         radio: boolean,
@@ -22,7 +22,7 @@ export interface EncuestaUsuario {
         recomendacion: boolean,
         otros: string
       },
-    Motivo: {
+    motivo: {
         conocia: boolean,
         recomendacion: boolean,
         promocion: boolean,
@@ -32,25 +32,25 @@ export interface EncuestaUsuario {
         amabilidad: boolean,
         otros:string
       },
-    Reserva: {
+    reserva: {
         reserva: string,
         medioReserva: string
     },
-    Tipo_Hospedaje: {
+    tipo_hospedaje: {
         tipo_hospedaje: string,
         otro_hospedaje: string
     },
-    Calificacion_Hospedaje: {
+    cali_hospedaje: {
         calificacion_hospedaje: string
     },
-    Material_Informativo: {
+    mat_informativo: {
         recibioMaterial: string,
         siRecibio: string
     },
-    Oficina: {
+    oficina: {
         oficinaOption: string
     },
-    Tipo_Informacion: {
+    tipo_informacion: {
         hospedaje: boolean,
         paseos: boolean,
         eventos: boolean,
@@ -60,28 +60,28 @@ export interface EncuestaUsuario {
         rutas: boolean,
         otros: string
     },
-    Medio_Informacion: {
+    medio_informacion: {
         personalmente: string,
         email: string,
         facebook: string,
         telefonica: string,
         otros: string
     },
-    Tipo_Material: {
+    tipo_material: {
         folletos: string,
         revistas: string,
         planos: string,
         calcomanias: string,
         guias: string
     },
-    Calificacion_Informacion: {
+    cali_informacion: {
         calificacion:string
     },
-    Otra_Informacion: {
+    otra_info: {
         informacion: string,
         otraInformacion: string
     },
-    Que_Informacion: {
+    que_info: {
         espectaculos_MC: boolean,
         espectaculos_cercanos: boolean,
         recreacion: boolean,
@@ -90,11 +90,11 @@ export interface EncuestaUsuario {
         paseos: boolean,
         otros: string
     },
-    Calificacion_MC: {
+    cali_mc: {
         calificacion_MC: string,
         porque: string
     },
-    Recomendaria: {
+    recom: {
         recomendaria: string,
         porque: string
     },
