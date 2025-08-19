@@ -66,17 +66,18 @@ export class Dashboard implements OnInit, AfterViewInit {
   constructor(private encuestaService: EncuestaService) {}
 
   ngOnInit() {
-    this.encuestaService.obtenerEncuesta().subscribe({
+    this.encuestaService.GetEncuesta().subscribe({
       next: (data) => {
         this.encuesta = data;
         this.encuestaSource.data = data;
+        console.log("Encuestas:",data)
       }
     });
 
     this.form.controls.filtrador.valueChanges.subscribe(value => {
       const filterValue = value.toLowerCase().trim();
-      this.formularioSource.data = ELEMENT_DATA.filter(item =>
-        item.nombre.toLowerCase().includes(filterValue)
+      this.formularioSource.data = this.encuesta.filter(item =>
+        item.turista.procedencia.toLowerCase().includes(filterValue)
       );
     });
   }
