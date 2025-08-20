@@ -48,6 +48,7 @@ export class Dashboard implements OnInit, AfterViewInit {
 
   encuesta: EncuestaUsuario[] = [];
   encuestaSource = new MatTableDataSource<EncuestaUsuario>();
+  formularioSource = new MatTableDataSource<InformacionFormulario>(ELEMENT_DATA);
 
   fb = inject(NonNullableFormBuilder);
 
@@ -57,8 +58,6 @@ export class Dashboard implements OnInit, AfterViewInit {
 
   displayedColumnsEncuesta: string[] = ['id', 'procedencia', 'fecha'];
   displayedColumnsFormulario: string[] = ['id', 'nombre', 'fecha'];
-
-  formularioSource = new MatTableDataSource<InformacionFormulario>(ELEMENT_DATA);
 
   @ViewChild('paginatorEncuesta') paginatorEncuesta!: MatPaginator;
   @ViewChild('paginatorFormulario') paginatorFormulario!: MatPaginator;
@@ -75,11 +74,16 @@ export class Dashboard implements OnInit, AfterViewInit {
     });
 
     this.form.controls.filtrador.valueChanges.subscribe(value => {
-      const filterValue = value.toLowerCase().trim();
-      this.formularioSource.data = this.encuesta.filter(item =>
-        item.turista.procedencia.toLowerCase().includes(filterValue)
-      );
-    });
+    const filterValue = value.toLowerCase().trim();
+
+    this.formularioSource.data = ELEMENT_DATA.filter(item =>
+      item.nombre.toLowerCase().includes(filterValue)
+    );
+
+    this.encuestaSource.data = this.encuesta.filter(item =>
+      item.turista.procedencia.toLowerCase().includes(filterValue)
+    );
+  });
   }
 
   ngAfterViewInit() {

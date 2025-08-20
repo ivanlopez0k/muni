@@ -16,7 +16,6 @@ import { MatRadioModule } from '@angular/material/radio' ;
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { provideNativeDateAdapter } from '@angular/material/core';
 import { MatCheckboxModule } from '@angular/material/checkbox';
-import { CustomInputComponent } from '../../components/custom-input/custom-input.component';
 import { EncuestaInpu } from '../../components/encuesta-inpu/encuesta-inpu';
 
 export interface Turista{
@@ -308,7 +307,8 @@ export class Encuesta {
   this.encuestaService.subirEncuesta(encuestaUsuario).subscribe({
     next: () => {
       console.log('Encuesta enviada con éxito', encuestaUsuario)
-      alert('Encuesta enviada con exito')
+      alert('Encuesta enviada con exito');
+      location.reload();
     },
     error: (e) => console.error('Error al enviar la encuesta:', e),
   });
