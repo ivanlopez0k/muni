@@ -31,8 +31,7 @@ export class Login {
 
     const datosUsuario : Admin = this.form.getRawValue();
     this.LoginService.login(datosUsuario).subscribe({
-      next: (res) => {
-        localStorage.setItem('token',JSON.stringify(res));
+      next: () => {
         this.router.navigate(['/dashboard'])
       },
       error: (err) => {

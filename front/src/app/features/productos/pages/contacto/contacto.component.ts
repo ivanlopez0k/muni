@@ -20,6 +20,7 @@ export class Contacto {
   private fb = inject(NonNullableFormBuilder);
   private contactoService = inject(ContactoService);
 
+
   form: FormGroup<ContenidoFormulario> = this.fb.group({
     name: this.fb.control('', Validators.required),
     email: this.fb.control('', [Validators.required, Validators.email]),
@@ -36,11 +37,11 @@ export class Contacto {
 
     this.contactoService.enviarFormulario(datosFormulario).subscribe({
       next: () => {
-        console.log('Formulario enviado con éxito')
+        alert('Formulario enviado con éxito')
         this.form.reset();
       },
-      error: () =>{
-        alert("Formulario enviado con exito")
+      error: (e) =>{
+        console.log("Error al enviar el formulario:",e)
       },
     });
   }
