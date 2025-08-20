@@ -11,7 +11,6 @@ export class EncuestaService {
   private apiGet = "http://localhost:3000/survey/getall"
   private http = inject(HttpClient)
 
-  // 👇 guardá tu token acá (después lo podés traer de localStorage si hacés login)
   private token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYWRtaW4iLCJpZCI6MSwiaWF0IjoxNzU1NDkxMjY0fQ.RX65e8-HSHECI8xstGmyNN9hKzKiv4CdtDXwG1DpAfo"
 
   private getAuthHeaders() {
