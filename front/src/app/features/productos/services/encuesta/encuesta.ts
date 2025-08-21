@@ -11,7 +11,7 @@ export class EncuestaService {
   private apiGet = "http://localhost:3000/survey/getall"
   private http = inject(HttpClient)
 
-  private token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYWRtaW4iLCJpZCI6MSwiaWF0IjoxNzU1NDkxMjY0fQ.RX65e8-HSHECI8xstGmyNN9hKzKiv4CdtDXwG1DpAfo"
+  private token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYWRtaW4iLCJpZCI6MSwiaWF0IjoxNzU1NzgyODI4fQ.H871zw3KSs7kkXDDvn5JkitPUfdJz7wqIzdda9dUvc4"
 
   private getAuthHeaders() {
     return new HttpHeaders({
