@@ -1,0 +1,211 @@
+<div class="contenedor">
+  <div class="contenedor_select">
+    <h3 class="titulo_select">¿Qué gráfico desea ver?</h3>
+    <mat-form-field [formGroup]="form" appearance="fill">
+    <mat-label>Categorias</mat-label>
+    <mat-select formControlName="selectedChartName">
+      @for (chartName of chartNames; track chartName) {
+        <mat-option [value]="chartName">{{chartName}}</mat-option>
+      }
+    </mat-select>
+  </mat-form-field>
+</div>
+
+<div class="contenedr_graficos">
+  @if (form.get('selectedChartName')?.value === 'Turista') {
+
+    <div class="generos_edad">
+      <div class="contenedorGraficos">
+      <h2 class="titulo_graficos">Gráfica de Géneros</h2>
+      <app-grafico-mixed-chart
+        [datasets]="[
+          { type: 'bar', label: 'Femenino', data: [cantidadMujeres], backgroundColor: 'rgba(255,99,132,0.5)', borderColor: 'rgba(255,99,132,1)' },
+          { type: 'bar', label: 'Masculino', data: [cantidadHombres], backgroundColor: 'rgba(54,162,235,0.2)', borderColor: 'rgba(54,162,235,1)' }
+        ]"
+      />
+    </div>
+
+      <div class="turista">
+        <div class="contenedorGraficos">
+          <h2 class="titulo_graficos">Gráfica de Edad</h2>
+          <app-grafico-mixed-chart
+            [datasets]="[
+              { type: 'bar', label: '18-25', data: [edad18_25], backgroundColor: 'rgba(255,206,86,0.5)', borderColor: 'rgba(255,206,86,1)' },
+              { type: 'bar', label: '26-35', data: [edad26_35], backgroundColor: 'rgba(75,192,192,0.5)', borderColor: 'rgba(75,192,192,1)' },
+              { type: 'bar', label: '36-45', data: [edad36_45], backgroundColor: 'rgba(153,102,255,0.5)', borderColor: 'rgba(153,102,255,1)' },
+              { type: 'bar', label: '46-55', data: [edad46_55], backgroundColor: 'rgba(255,159,64,0.5)', borderColor: 'rgba(255,159,64,1)' },
+              { type: 'bar', label: '56+', data: [edad56_mas], backgroundColor: 'rgba(201,203,207,0.5)', borderColor: 'rgba(201,203,207,1)' }
+            ]"
+          />
+        </div>
+      </div>
+    </div>
+
+    <div class="procedencia_estadia">
+      <div class="turista">
+        <div class="contenedorGraficos">
+          <h2 class="titulo_graficos">Gráfica de Procedencia</h2>
+          <app-grafico-mixed-chart
+            [labels]="['Ciudad de Córdoba', 'Otra localidad', 'Otra provincia', 'Otro país']"
+            [datasets]="[
+              {
+                type: 'line', label: 'Cantidad de encuestados', data: [cantidadCiudad, cantidadLocalidad, cantidadProvincia, cantidadPais], backgroundColor: 'rgba(255, 99, 132, 0.5)', borderColor:'rgba(255, 99, 132, 1)',
+              }
+            ]"/>
+        </div>
+      </div>
+
+      <div class="turista">
+        <div class="contenedorGraficos">
+          <h2 class="titulo_graficos">Mes de Estadia</h2>
+          <app-grafico-mixed-chart
+            [labels]="['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre']"
+            [datasets]="[
+              { type: 'line', label: 'Cantidad de encuestados', data: [cantidadEnero, cantidadFebrero, cantidadMarzo,
+                cantidadAbril, cantidadMayo, cantidadJunio, cantidadJulio, cantidadAgosto, cantidadSeptiembre, cantidadOctubre, cantidadNoviembre, cantidadDiciembre
+              ], backgroundColor: 'rgba(54,162,235,0.5)', borderColor: 'rgba(54,162,235,1)' }
+            ]"
+          />
+        </div>
+      </div>
+    </div>
+  }
+
+  @if (form.get('selectedChartName')?.value === 'Medios') {
+    <div class="contenedorGraficos">
+      <h2 class="titulo_difusion" >Medios de Difusión</h2>
+      <app-grafico-mixed-chart
+        [datasets]="[
+          { type: 'bar', label: 'Televisión', data: [cantidadTelevision], backgroundColor: 'rgba(255,99,132,0.5)', borderColor: 'rgba(255,99,132,1)' },
+          { type: 'bar', label: 'Página Web', data: [cantidadPaginaWeb], backgroundColor: 'rgba(54,162,235,0.5)', borderColor: 'rgba(54,162,235,1)' },
+          { type: 'bar', label: 'Radio', data: [cantidadRadio], backgroundColor: 'rgba(255,206,86,0.5)', borderColor: 'rgba(255,206,86,1)' },
+          { type: 'bar', label: 'Gráficos', data: [cantidadGraficos], backgroundColor: 'rgba(75,192,192,0.5)', borderColor: 'rgba(75,192,192,1)' },
+          { type: 'bar', label: 'Facebook', data: [cantidadFacebook], backgroundColor: 'rgba(153,102,255,0.5)', borderColor: 'rgba(153,102,255,1)' },
+          { type: 'bar', label: 'Recomendación', data: [cantidadRecomendacion], backgroundColor: 'rgba(255,159,64,0.5)', borderColor: 'rgba(255,159,64,1)' },
+          { type: 'bar', label: 'Otro', data: [cantidadOtros], backgroundColor: 'rgba(201,203,207,0.5)', borderColor:'rgba(201,203,207,1)' }
+        ]"
+      />
+    </div>
+  }
+
+  @if (form.get('selectedChartName')?.value === 'Motivo') {
+    <div class="contenedorGraficos">
+      <h2 class="titulo_centrado" >¿Por qué motivo eligió Mina Clavero para pasar sus vacaciones?</h2>
+      <app-grafico-mixed-chart
+            [labels]="['Conocia','Recomendación','Publicidad','Tranquilidad', 'Paisajes','Eventos','Amabilidad','Otros']"
+            [datasets]="[
+              { type: 'line', label: 'Cantidad de encuestados', data: [cantidadConocia, cantidadRecomendacion,
+                cantidadPublicidad, cantidadTranquilidad, cantidadPaisajes, cantidadEventos, cantidadAmabilidad, cantidadOtrosMotivos
+              ], backgroundColor: 'rgba(54,162,235,0.5)', borderColor: 'rgba(54,162,235,1)' }
+            ]"
+          />
+    </div>
+  }
+
+  @if (form.get('selectedChartName')?.value === 'Hospedaje') {
+    <div class="contenedor_hospedaje">
+      <div class="contenedorGraficos">
+      <h2 class="titulo_centrado">Reserva</h2>
+      <app-grafico-mixed-chart
+        [datasets]="[
+          { type: 'bar', label: 'Con reserva', data: [cantidadConReserva], backgroundColor: 'rgba(255,99,132,0.5)', borderColor: 'rgba(255,99,132,1)' },
+          { type: 'bar', label: 'Sin reserva', data: [cantidadSinReserva], backgroundColor: 'rgba(54,162,235,0.5)', borderColor: 'rgba(54,162,235,1)' }
+        ]"
+      />
+    </div>
+
+    <div class="contenedorGraficos" style="margin-top: 50px;">
+      <h2 class="titulo_centrado">Tipo de Hospedaje</h2>
+        <app-grafico-mixed-chart
+          [labels]="['Hotel', 'Cabaña', 'Hosteria', 'Camping', 'Casa de alquiler', 'Otro Hospedaje']"
+          [datasets]="[
+            { type: 'line', label: 'Cantidad de encuestados', data: [cantidadHoteles, cantidadCabanas, cantidadCamping, cantidadCasaAlquiler, cantidadOtroHospedaje ], backgroundColor: 'rgba(255,206,86,0.5)', borderColor: 'rgba(255,206,86,1)' }
+          ]"
+        />
+    </div>
+
+    <div class="contenedorGraficos">
+      <h2 class="titulo_centrado" >Calificación del Servicio</h2>
+      <app-grafico-mixed-chart
+        [datasets]="[
+          { type: 'bar', label: 'Excelente', data: [cantidadServicioExcelente], backgroundColor: 'rgba(255,99,132,0.5)', borderColor: 'rgba(255,99,132,1)' },
+          { type: 'bar', label: 'Muy buena', data: [cantidadServicioMuyBuena], backgroundColor: 'rgba(54,162,235,0.5)', borderColor: 'rgba(54,162,235,1)' },
+          { type: 'bar', label: 'Buena', data: [cantidadServicioBuena], backgroundColor: 'rgba(255,206,86,0.5)', borderColor: 'rgba(255,206,86,1)' },
+          { type: 'bar', label: 'Regular', data: [cantidadServicioRegular], backgroundColor: 'rgba(75,192,192,0.5)', borderColor: 'rgba(75,192,192,1)' },
+          { type: 'bar', label: 'Mala', data: [cantidadServicioMala], backgroundColor: 'rgba(153,102,255,0.5)', borderColor: 'rgba(153,102,255,1)' },
+          { type: 'bar', label: 'Muy mala', data: [cantidadServicioMuyMala], backgroundColor: 'rgba(255,159,64,0.5)', borderColor:'rgba(255,159,64,1)' },
+          { type: 'bar', label: 'Pésima', data: [cantidadServicioPesima], backgroundColor:'rgba(201,203,207,0.5)', borderColor:'rgba(201,203,207,1)' }
+        ]"
+        />
+    </div>
+    </div>
+  }
+
+  @if (form.get('selectedChartName')?.value === 'Oficina') {
+    <div class="contenedor_oficina">
+      <div class="contenedorGraficos">
+      <h2 class="titulo_centrado">Solicitud de información en oficina</h2>
+      <app-grafico-mixed-chart
+        [datasets]="[
+          {type: 'bar', label: 'Sin informacion', data: [cantidadSinInformacion], backgroundColor: 'rgba(255,99,132,0.5)', borderColor: 'rgba(255,99,132,1)'},
+          {type: 'bar', label: 'Oficina de la rotonda de ingreso', data: [cantidadOficinaRotonda], backgroundColor: 'rgba(54,162,235,0.5)', borderColor: 'rgba(54,162,235,1)'},
+          {type: 'bar', label: 'Oficina de Plazalote Merlo', data: [cantidadOficinaPlazaMerlo], backgroundColor: 'rgba(255,206,86,0.5)', borderColor: 'rgba(255,206,86,1)'},
+          {type: 'bar', label: 'Oficina de la terminal', data: [cantidadOficinaTerminal], backgroundColor: 'rgba(75,192,192,0.5)', borderColor: 'rgba(75,192,192,1)'}
+        ]"
+      />
+    </div>
+
+    <div class="contenedorGraficos" style="margin-top: 50px;">
+      <h2 class="titulo_centrado">Tipo de Información</h2>
+      <app-grafico-mixed-chart
+        [labels]="['Hospedaje', 'Paseos', 'Eventos', 'Gastronomia', 'Turismo Aventura', 'Servicios', 'Rutas', 'Otros']"
+        [datasets]="[
+          { type: 'line', label: 'Cantidad de encuestados', data: [cantidadInformacionHospedaje, cantidadInformacionPaseos, cantidadInformacionPaseos, cantidadInformacionEventos, cantidadInformacionGastronomia, cantidadInformacionTurismoAventura, cantidadInformacionServicios,cantidadInformacionRutas, cantidadInformacionOtros
+          ], backgroundColor: 'rgba(122, 57, 243, 0.705)', borderColor: 'rgba(122, 57, 243, 0.705)' }
+        ]"
+      />
+    </div>
+
+    <div class="contenedorGraficos">
+      <h2 class="titulo_centrado">Calificación de la información</h2>
+      <app-grafico-mixed-chart
+        [datasets]="[
+          { type: 'bar', label: 'Excelente', data: [cantidadInformacionExcelente], backgroundColor: 'rgba(255,99,132,0.5)', borderColor: 'rgba(255,99,132,1)' },
+          { type: 'bar', label: 'Muy buena', data: [cantidadInformacionMuyBuena], backgroundColor: 'rgba(54,162,235,0.5)', borderColor: 'rgba(54,162,235,1)' },
+          { type: 'bar', label: 'Buena', data: [cantidadInformacionBuena], backgroundColor: 'rgba(255,206,86,0.5)', borderColor: 'rgba(255,206,86,1)' },
+          { type: 'bar', label: 'Regular', data: [cantidadInformacionRegular], backgroundColor: 'rgba(75,192,192,0.5)', borderColor: 'rgba(75,192,192,1)' },
+          { type: 'bar', label: 'Mala', data: [cantidadInformacionMala], backgroundColor: 'rgba(153,102,255,0.5)', borderColor: 'rgba(153,102,255,1)' },
+          { type: 'bar', label: 'Muy mala', data: [cantidadInformacionMuyMala], backgroundColor:'rgba(255,159,64,0.5)', borderColor:'rgba(255,159,64,1)'},
+          { type: 'bar', label: 'Pésima', data: [cantidadInformacionPesima], backgroundColor:'rgba(201,203,207,0.5)', borderColor:'rgba(201,203,207,1)'}
+        ]"
+      />
+    </div>
+    </div>
+  }
+
+  @if (form.get('selectedChartName')?.value === 'Recomendaria') {
+    <div class="contenedor_recomendaciones">
+      <div class="contenedorGraficos">
+      <h2 class="titulo_graficos">¿Considera Mina Clavero un destino completo?</h2>
+      <app-grafico-mixed-chart
+        [datasets]="[
+          { type: 'bar', label: 'Sí', data: [cantidadDestinoCompletoSi], backgroundColor: 'rgba(255,99,132,0.5)', borderColor: 'rgba(255,99,132,1)' },
+          { type: 'bar', label: 'No', data: [cantidadDestinoCompletoNo], backgroundColor: 'rgba(54,162,235,0.5)', borderColor: 'rgba(54,162,235,1)' }
+        ]"
+        />
+    </div>
+
+    <div class="contenedorGraficos">
+      <h2 class="titulo_graficos">¿Recomendaría Mina Clavero como destino turístico?</h2>
+      <app-grafico-mixed-chart
+        [datasets]="[
+          { type: 'bar', label: 'Sí', data: [cantidadDestinoTuristicoSi], backgroundColor: 'rgba(255,99,132,0.5)', borderColor: 'rgba(255,99,132,1)' },
+          { type: 'bar', label: 'No', data: [cantidadDestinoTuristicoNo], backgroundColor: 'rgba(54,162,235,0.5)', borderColor: 'rgba(54,162,235,1)' }
+        ]"
+        />
+    </div>
+    </div>
+  }
+</div>
+
+</div>

@@ -8,6 +8,7 @@ import { CustomInputComponent } from '../../components/custom-input/custom-input
 import { EncuestaUsuario, Formulario } from '../../models';
 import { EncuestaService } from '../../services/encuesta/encuesta';
 import { ContactoService } from '../../services/contacto/contacto';
+import { Graficos } from "../../components/graficos/graficos.component";
 
 export interface InformacionFormulario {
   id: number;
@@ -27,8 +28,9 @@ export interface InputFiltrador {
     MatTabsModule,
     MatTableModule,
     MatPaginatorModule,
-    CustomInputComponent
-  ],
+    CustomInputComponent,
+    Graficos
+],
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
 })
@@ -49,7 +51,7 @@ export class Dashboard implements OnInit, AfterViewInit {
     filtrador: this.fb.control('')
   });
 
-  displayedColumnsEncuesta: string[] = ['id', 'procedencia', 'fecha'];
+  displayedColumnsEncuesta: string[] = ['id','nombre','procedencia', 'fecha'];
   displayedColumnsFormulario: string[] = ['id', 'name', 'email' ,'message', 'createdAt'];
 
   @ViewChild('paginatorEncuesta') paginatorEncuesta!: MatPaginator;
@@ -61,7 +63,6 @@ export class Dashboard implements OnInit, AfterViewInit {
       next: (data) => {
         this.encuesta = data;
         this.encuestaSource.data = data;
-        console.log("Encuestas:",data)
       }
     });
 
@@ -69,7 +70,6 @@ export class Dashboard implements OnInit, AfterViewInit {
       next: (data) => {
         this.contacto = data;
         this.formularioSource.data = data;
-        console.log("Contactos:", data)
       }
     })
 

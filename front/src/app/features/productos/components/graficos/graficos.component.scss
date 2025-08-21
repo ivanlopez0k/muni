@@ -1,0 +1,64 @@
+.contenedor{
+  display: flex;
+  flex-direction: column;
+}
+
+.contenedor_select{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+
+.titulo_select{
+  font-family: 'Karla', sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.705);
+}
+
+.generos_edad,
+.procedencia_estadia,
+.contenedor_hospedaje,
+.contenedor_oficina,
+.contenedor_recomendaciones{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.titulo_graficos,
+.titulo_centrado{
+  font-family: 'Karla', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 450;
+  color: rgba(0, 0, 0, 0.705);
+}
+
+.titulo_centrado {
+  text-align: center;
+}
+
+.contenedorGraficos{
+  padding:0rem 5rem 2rem 5rem;
+}
+
+@media (max-width: 768px) {
+  .generos_edad,
+  .procedencia_estadia,
+  .contenedor_recomendaciones {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .titulo_select {
+    margin-bottom: 0.5rem;
+  }
+
+  .generos_edad, .procedencia_estadia {
+    flex-direction: column;
+    align-items: center;
+  }
+}

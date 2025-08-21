@@ -308,6 +308,7 @@ export class Encuesta {
     next: () => {
       console.log('Encuesta enviada con éxito', encuestaUsuario)
       alert('Encuesta enviada con exito')
+      window.location.reload();
     },
     error: (e) => console.error('Error al enviar la encuesta:', e),
   });
