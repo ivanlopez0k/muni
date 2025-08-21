@@ -5,8 +5,10 @@ import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { ReactiveFormsModule, FormControl, FormGroup, NonNullableFormBuilder } from '@angular/forms';
 import { CustomInputComponent } from '../../components/custom-input/custom-input.component';
-import { EncuestaUsuario } from '../../models';
+import { EncuestaUsuario, Formulario } from '../../models';
 import { EncuestaService } from '../../services/encuesta/encuesta';
+import { ContactoService } from '../../services/contacto/contacto';
+import { Graficos } from "../../components/graficos/graficos.component";
 
 export interface InformacionFormulario {
   id: number;
@@ -18,19 +20,6 @@ export interface InputFiltrador {
   filtrador: FormControl<string>;
 }
 
-const ELEMENT_DATA: InformacionFormulario[] = [
-  { id: 1, nombre: 'Buenos Aires', fecha: '2025-08-01' },
-  { id: 2, nombre: 'Córdoba', fecha: '2025-08-02' },
-  { id: 3, nombre: 'Rosario', fecha: '2025-08-03' },
-  { id: 4, nombre: 'Mendoza', fecha: '2025-08-04' },
-  { id: 5, nombre: 'La Plata', fecha: '2025-08-05' },
-  { id: 6, nombre: 'San Juan', fecha: '2025-08-06' },
-  { id: 7, nombre: 'Salta', fecha: '2025-08-07' },
-  { id: 8, nombre: 'Neuquén', fecha: '2025-08-08' },
-  { id: 9, nombre: 'Tucumán', fecha: '2025-08-09' },
-  { id: 10, nombre: 'Mar del Plata', fecha: '2025-08-10' },
-];
-
 @Component({
   selector: 'app-dashboard',
   imports: [
@@ -39,16 +28,22 @@ const ELEMENT_DATA: InformacionFormulario[] = [
     MatTabsModule,
     MatTableModule,
     MatPaginatorModule,
-    CustomInputComponent
-  ],
+    CustomInputComponent,
+    Graficos
+],
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
 })
 export class Dashboard implements OnInit, AfterViewInit {
 
   encuesta: EncuestaUsuario[] = [];
+  contacto: Formulario[] = [];
+
+  private encuestaService = inject(EncuestaService);
+  private contactoService = inject(ContactoService)
+
   encuestaSource = new MatTableDataSource<EncuestaUsuario>();
-  formularioSource = new MatTableDataSource<InformacionFormulario>(ELEMENT_DATA);
+  formularioSource = new MatTableDataSource<Formulario>();
 
   fb = inject(NonNullableFormBuilder);
 
@@ -56,28 +51,34 @@ export class Dashboard implements OnInit, AfterViewInit {
     filtrador: this.fb.control('')
   });
 
-  displayedColumnsEncuesta: string[] = ['id', 'procedencia', 'fecha'];
-  displayedColumnsFormulario: string[] = ['id', 'nombre', 'fecha'];
+
+  displayedColumnsEncuesta: string[] = ['id','nombre','procedencia', 'fecha'];
+  displayedColumnsFormulario: string[] = ['id', 'name', 'email' ,'message', 'createdAt'];
 
   @ViewChild('paginatorEncuesta') paginatorEncuesta!: MatPaginator;
   @ViewChild('paginatorFormulario') paginatorFormulario!: MatPaginator;
 
-  constructor(private encuestaService: EncuestaService) {}
 
   ngOnInit() {
     this.encuestaService.GetEncuesta().subscribe({
       next: (data) => {
         this.encuesta = data;
         this.encuestaSource.data = data;
-        console.log("Encuestas:",data)
       }
     });
+
+    this.contactoService.obtenerFormulario().subscribe({
+      next: (data) => {
+        this.contacto = data;
+        this.formularioSource.data = data;
+      }
+    })
 
     this.form.controls.filtrador.valueChanges.subscribe(value => {
     const filterValue = value.toLowerCase().trim();
 
-    this.formularioSource.data = ELEMENT_DATA.filter(item =>
-      item.nombre.toLowerCase().includes(filterValue)
+    this.formularioSource.data = this.contacto.filter(item =>
+      item.name.toLowerCase().includes(filterValue)
     );
 
     this.encuestaSource.data = this.encuesta.filter(item =>

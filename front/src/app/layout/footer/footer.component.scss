@@ -19,17 +19,13 @@
   flex: 1 1 250px;
 }
 
-.footer__logo img {
-  width: 80px;
-  height: auto;
+.footer__imagen{
+  width: 240px;
+  height: 60px;
+  object-fit: cover;
   border-radius: 8px;
 }
 
-.footer__logo h2 {
-  margin-top: 0.5rem;
-  font-size: 1.2rem;
-  color: #f1c40f;
-}
 
 .footer__info,
 .footer__links {

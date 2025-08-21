@@ -11,6 +11,7 @@ const config = require('./config/config');
 //rutas
 const userRoutes = require('./routes/userRoutes');
 const surverRoutes = require('./routes/surveyRoutes');
+const contactRoutes = require('./routes/contactoRoutes');
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -91,3 +92,4 @@ app.listen(process.env.PORT,()=>{
 
 app.use('/user', userRoutes);
 app.use('/survey', surverRoutes);
+app.use('/contact', contactRoutes);

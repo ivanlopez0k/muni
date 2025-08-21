@@ -6,7 +6,7 @@
 
   <form [formGroup]="form" class="dashboard-form">
     <app-custom-input
-      [placeholder]="'Buscar por procedencia'"
+      [placeholder]="'Buscar por procedencia o nombre'"
       [control]="form.controls.filtrador"
     />
   </form>
@@ -25,6 +25,10 @@
             <th mat-header-cell *matHeaderCellDef>Id</th>
             <td mat-cell *matCellDef="let e">{{ e.id }}</td>
           </ng-container>
+          <ng-container matColumnDef="nombre">
+            <th mat-header-cell *matHeaderCellDef>Nombre</th>
+            <td mat-cell *matCellDef="let e">{{ e.turista.nombre }}</td>
+          </ng-container>
           <ng-container matColumnDef="procedencia">
             <th mat-header-cell *matHeaderCellDef>Procedencia</th>
             <td mat-cell *matCellDef="let e">{{ e.turista.procedencia }}</td>
@@ -37,8 +41,8 @@
           <tr mat-row *matRowDef="let row; columns: displayedColumnsEncuesta"></tr>
         </table>
 
-
         <mat-paginator
+          class="paginator"
           #paginatorEncuesta
           [pageSize]="5"
           [pageSizeOptions]="[5, 10, 25, 100]"
@@ -49,7 +53,9 @@
     </mat-tab>
 
     <mat-tab label="Gráficos">
-      <div class="graficos-container">Acá van tus gráficos.</div>
+      <div class="graficos-container">
+        <app-graficos></app-graficos>
+      </div>
     </mat-tab>
 
     <mat-tab label="Mensajes">
@@ -59,18 +65,25 @@
             <th mat-header-cell *matHeaderCellDef>Id</th>
             <td mat-cell *matCellDef="let f">{{ f.id}}</td>
           </ng-container>
-          <ng-container matColumnDef="nombre">
+          <ng-container matColumnDef="name">
             <th mat-header-cell *matHeaderCellDef>Nombre</th>
-            <td mat-cell *matCellDef="let f">{{ f.nombre }}</td>
+            <td mat-cell *matCellDef="let f">{{ f.name }}</td>
           </ng-container>
-          <ng-container matColumnDef="fecha">
+          <ng-container matColumnDef="email">
+            <th mat-header-cell *matHeaderCellDef>Email</th>
+            <td mat-cell *matCellDef="let f">{{ f.email }}</td>
+          </ng-container>
+          <ng-container matColumnDef="message">
+            <th mat-header-cell *matHeaderCellDef>Mensaje</th>
+            <td mat-cell *matCellDef="let f">{{ f.message }}</td>
+          </ng-container>
+          <ng-container matColumnDef="createdAt">
             <th mat-header-cell *matHeaderCellDef>Fecha</th>
-            <td mat-cell *matCellDef="let f">{{ f.fecha }}</td>
+            <td mat-cell *matCellDef="let f">{{ f.createdAt | date:'dd/MM/yyyy' }}</td>
           </ng-container>
           <tr mat-header-row *matHeaderRowDef="displayedColumnsFormulario"></tr>
           <tr mat-row *matRowDef="let row; columns: displayedColumnsFormulario"></tr>
         </table>
-
         <mat-paginator
           #paginatorFormulario
           class="paginator"
