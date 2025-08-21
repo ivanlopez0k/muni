@@ -73,7 +73,7 @@
 
   @if (form.get('selectedChartName')?.value === 'Medios') {
     <div class="contenedorGraficos">
-      <h2 class="titulo_difusion" >Medios de Difusión</h2>
+      <h2 class="titulo_centrado" >Medios de Difusión</h2>
       <app-grafico-mixed-chart
         [datasets]="[
           { type: 'bar', label: 'Televisión', data: [cantidadTelevision], backgroundColor: 'rgba(255,99,132,0.5)', borderColor: 'rgba(255,99,132,1)' },
