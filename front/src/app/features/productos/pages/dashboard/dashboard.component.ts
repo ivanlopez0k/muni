@@ -51,6 +51,7 @@ export class Dashboard implements OnInit, AfterViewInit {
     filtrador: this.fb.control('')
   });
 
+
   displayedColumnsEncuesta: string[] = ['id','nombre','procedencia', 'fecha'];
   displayedColumnsFormulario: string[] = ['id', 'name', 'email' ,'message', 'createdAt'];
 

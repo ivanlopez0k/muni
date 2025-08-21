@@ -91,7 +91,7 @@
           }
         </div>
       <div>
-        <button class="boton_siguiente_formulario" matButton="filled" matStepperNext >Siguiente</button>
+        <button class="boton_siguiente_formulario" matButton="filled" matStepperNext>Siguiente</button>
       </div>
     </form>
   </mat-step>
@@ -140,9 +140,9 @@
             [placeholder]="'motivo'"
           />
         </div>
-
+        @if(formularioDifusion.invalid){ <span class="span_requerimiento">Complete los campos requeridos *</span> }
       <div class="contenedor_botones">
-        <button class="boton_volver_formulario" matButton matStepperPrevious>Anterior</button>
+        <button class="boton_volver_formulario" matButton matStepperPrevious [disabled]="!formularioDifusion">Anterior</button>
         <button class="boton_siguiente_formulario" matButton="filled" matStepperNext >Siguiente</button>
       </div>
     </form>
@@ -230,7 +230,7 @@
       </div>
 
       @if (formularioOficina.get('Oficina.oficinaOption')?.value === 'No') {
-        <div>Desaparece todo</div>
+        <div></div>
       }@else{
         <div formGroupName="Tipo_Informacion">
           <h3 class="subtitulo_formulario">¿Qué tipo de información solicitó en las oficinas de Turismo de Mina Clavero?</h3>
