@@ -1,0 +1,44 @@
+<div class="contenedor_labelInput">
+  @if (label()) {
+    <label class="label">{{ label() }}</label>
+  }
+
+  @switch (type()) {
+    @case ('textarea') {
+      <textarea
+        class="textarea"
+        [placeholder]="placeholder()"
+        [formControl]="control()"
+        (blur)="onTouched()"
+        [class.invalid]="control().invalid && (control().dirty || control().touched)"
+      ></textarea>
+    }
+    @default {
+      <input
+        class="input"
+        [type]="type()"
+        [placeholder]="placeholder()"
+        [formControl]="control()"
+        (blur)="onTouched()"
+        [class.invalid]="control().invalid && (control().dirty || control().touched)"
+      />
+    }
+  }
+
+  @if (control().invalid && (control().dirty || control().touched)) {
+    <div class="error-messages">
+      @if (control().errors?.['required']) {
+        <span class="input_error">Este campo es obligatorio</span>
+      }
+      @if (control().errors?.['email']) {
+        <span class="input_error">Debe ser un email válido</span>
+      }
+      @if (control().errors?.['minlength']) {
+        <span class="input_error">Mínimo {{ control().errors?.['minlength'].requiredLength }} caracteres</span>
+      }
+      @if (control().errors?.['maxlength']) {
+        <span class="input_error">Máximo {{ control().errors?.['maxlength'].requiredLength }} caracteres</span>
+      }
+    </div>
+  }
+</div>
