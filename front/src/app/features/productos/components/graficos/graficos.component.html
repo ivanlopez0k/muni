@@ -19,8 +19,8 @@
       <h2 class="titulo_graficos">Gráfica de Géneros</h2>
       <app-grafico-mixed-chart
         [datasets]="[
-          { type: 'bar', label: 'Femenino', data: [cantidadMujeres], backgroundColor: 'rgba(255,99,132,0.5)', borderColor: 'rgba(255,99,132,1)' },
-          { type: 'bar', label: 'Masculino', data: [cantidadHombres], backgroundColor: 'rgba(54,162,235,0.2)', borderColor: 'rgba(54,162,235,1)' }
+          { type: 'bar', label: 'Femenino', data: [120], backgroundColor: 'rgba(255,99,132,0.5)', borderColor: 'rgba(255,99,132,1)' },
+          { type: 'bar', label: 'Masculino', data: [80], backgroundColor: 'rgba(54,162,235,0.2)', borderColor: 'rgba(54,162,235,1)' }
         ]"
       />
     </div>
@@ -30,11 +30,11 @@
           <h2 class="titulo_graficos">Gráfica de Edad</h2>
           <app-grafico-mixed-chart
             [datasets]="[
-              { type: 'bar', label: '18-25', data: [edad18_25], backgroundColor: 'rgba(255,206,86,0.5)', borderColor: 'rgba(255,206,86,1)' },
+              { type: 'bar', label: '18-25', data: [50], backgroundColor: 'rgba(255,206,86,0.5)', borderColor: 'rgba(255,206,86,1)' },
               { type: 'bar', label: '26-35', data: [edad26_35], backgroundColor: 'rgba(75,192,192,0.5)', borderColor: 'rgba(75,192,192,1)' },
-              { type: 'bar', label: '36-45', data: [edad36_45], backgroundColor: 'rgba(153,102,255,0.5)', borderColor: 'rgba(153,102,255,1)' },
-              { type: 'bar', label: '46-55', data: [edad46_55], backgroundColor: 'rgba(255,159,64,0.5)', borderColor: 'rgba(255,159,64,1)' },
-              { type: 'bar', label: '56+', data: [edad56_mas], backgroundColor: 'rgba(201,203,207,0.5)', borderColor: 'rgba(201,203,207,1)' }
+              { type: 'bar', label: '36-45', data: [32], backgroundColor: 'rgba(153,102,255,0.5)', borderColor: 'rgba(153,102,255,1)' },
+              { type: 'bar', label: '46-55', data: [85], backgroundColor: 'rgba(255,159,64,0.5)', borderColor: 'rgba(255,159,64,1)' },
+              { type: 'bar', label: '56+', data: [9], backgroundColor: 'rgba(201,203,207,0.5)', borderColor: 'rgba(201,203,207,1)' }
             ]"
           />
         </div>
@@ -49,7 +49,7 @@
             [labels]="['Ciudad de Córdoba', 'Otra localidad', 'Otra provincia', 'Otro país']"
             [datasets]="[
               {
-                type: 'line', label: 'Cantidad de encuestados', data: [cantidadCiudad, cantidadLocalidad, cantidadProvincia, cantidadPais], backgroundColor: 'rgba(255, 99, 132, 0.5)', borderColor:'rgba(255, 99, 132, 1)',
+                type: 'line', label: 'Cantidad de encuestados', data: [65,24,75,45], backgroundColor: 'rgba(255, 99, 132, 0.5)', borderColor:'rgba(255, 99, 132, 1)',
               }
             ]"/>
         </div>
@@ -61,8 +61,7 @@
           <app-grafico-mixed-chart
             [labels]="['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre']"
             [datasets]="[
-              { type: 'line', label: 'Cantidad de encuestados', data: [cantidadEnero, cantidadFebrero, cantidadMarzo,
-                cantidadAbril, cantidadMayo, cantidadJunio, cantidadJulio, cantidadAgosto, cantidadSeptiembre, cantidadOctubre, cantidadNoviembre, cantidadDiciembre
+              { type: 'line', label: 'Cantidad de encuestados', data: [10, 20, 55, 25, 30, 95, 40, 45, 50, 15, 60, 25
               ], backgroundColor: 'rgba(54,162,235,0.5)', borderColor: 'rgba(54,162,235,1)' }
             ]"
           />
@@ -76,13 +75,13 @@
       <h2 class="titulo_centrado" >Medios de Difusión</h2>
       <app-grafico-mixed-chart
         [datasets]="[
-          { type: 'bar', label: 'Televisión', data: [cantidadTelevision], backgroundColor: 'rgba(255,99,132,0.5)', borderColor: 'rgba(255,99,132,1)' },
-          { type: 'bar', label: 'Página Web', data: [cantidadPaginaWeb], backgroundColor: 'rgba(54,162,235,0.5)', borderColor: 'rgba(54,162,235,1)' },
-          { type: 'bar', label: 'Radio', data: [cantidadRadio], backgroundColor: 'rgba(255,206,86,0.5)', borderColor: 'rgba(255,206,86,1)' },
-          { type: 'bar', label: 'Gráficos', data: [cantidadGraficos], backgroundColor: 'rgba(75,192,192,0.5)', borderColor: 'rgba(75,192,192,1)' },
-          { type: 'bar', label: 'Facebook', data: [cantidadFacebook], backgroundColor: 'rgba(153,102,255,0.5)', borderColor: 'rgba(153,102,255,1)' },
+          { type: 'bar', label: 'Televisión', data: [13], backgroundColor: 'rgba(255,99,132,0.5)', borderColor: 'rgba(255,99,132,1)' },
+          { type: 'bar', label: 'Página Web', data: [76], backgroundColor: 'rgba(54,162,235,0.5)', borderColor: 'rgba(54,162,235,1)' },
+          { type: 'bar', label: 'Radio', data: [23], backgroundColor: 'rgba(255,206,86,0.5)', borderColor: 'rgba(255,206,86,1)' },
+          { type: 'bar', label: 'Gráficos', data: [93], backgroundColor: 'rgba(75,192,192,0.5)', borderColor: 'rgba(75,192,192,1)' },
+          { type: 'bar', label: 'Facebook', data: [12], backgroundColor: 'rgba(153,102,255,0.5)', borderColor: 'rgba(153,102,255,1)' },
           { type: 'bar', label: 'Recomendación', data: [cantidadRecomendacion], backgroundColor: 'rgba(255,159,64,0.5)', borderColor: 'rgba(255,159,64,1)' },
-          { type: 'bar', label: 'Otro', data: [cantidadOtros], backgroundColor: 'rgba(201,203,207,0.5)', borderColor:'rgba(201,203,207,1)' }
+          { type: 'bar', label: 'Otro', data: [54], backgroundColor: 'rgba(201,203,207,0.5)', borderColor:'rgba(201,203,207,1)' }
         ]"
       />
     </div>
@@ -94,8 +93,7 @@
       <app-grafico-mixed-chart
             [labels]="['Conocia','Recomendación','Publicidad','Tranquilidad', 'Paisajes','Eventos','Amabilidad','Otros']"
             [datasets]="[
-              { type: 'line', label: 'Cantidad de encuestados', data: [cantidadConocia, cantidadRecomendacion,
-                cantidadPublicidad, cantidadTranquilidad, cantidadPaisajes, cantidadEventos, cantidadAmabilidad, cantidadOtrosMotivos
+              { type: 'line', label: 'Cantidad de encuestados', data: [12,52,45,23,64,21,76,90
               ], backgroundColor: 'rgba(54,162,235,0.5)', borderColor: 'rgba(54,162,235,1)' }
             ]"
           />
@@ -108,8 +106,8 @@
       <h2 class="titulo_centrado">Reserva</h2>
       <app-grafico-mixed-chart
         [datasets]="[
-          { type: 'bar', label: 'Con reserva', data: [cantidadConReserva], backgroundColor: 'rgba(255,99,132,0.5)', borderColor: 'rgba(255,99,132,1)' },
-          { type: 'bar', label: 'Sin reserva', data: [cantidadSinReserva], backgroundColor: 'rgba(54,162,235,0.5)', borderColor: 'rgba(54,162,235,1)' }
+          { type: 'bar', label: 'Con reserva', data: [17], backgroundColor: 'rgba(255,99,132,0.5)', borderColor: 'rgba(255,99,132,1)' },
+          { type: 'bar', label: 'Sin reserva', data: [25], backgroundColor: 'rgba(54,162,235,0.5)', borderColor: 'rgba(54,162,235,1)' }
         ]"
       />
     </div>
@@ -119,7 +117,7 @@
         <app-grafico-mixed-chart
           [labels]="['Hotel', 'Cabaña', 'Hosteria', 'Camping', 'Casa de alquiler', 'Otro Hospedaje']"
           [datasets]="[
-            { type: 'line', label: 'Cantidad de encuestados', data: [cantidadHoteles, cantidadCabanas, cantidadCamping, cantidadCasaAlquiler, cantidadOtroHospedaje ], backgroundColor: 'rgba(255,206,86,0.5)', borderColor: 'rgba(255,206,86,1)' }
+            { type: 'line', label: 'Cantidad de encuestados', data: [43,21,65,12,98], backgroundColor: 'rgba(255,206,86,0.5)', borderColor: 'rgba(255,206,86,1)' }
           ]"
         />
     </div>
@@ -128,13 +126,13 @@
       <h2 class="titulo_centrado" >Calificación del Servicio</h2>
       <app-grafico-mixed-chart
         [datasets]="[
-          { type: 'bar', label: 'Excelente', data: [cantidadServicioExcelente], backgroundColor: 'rgba(255,99,132,0.5)', borderColor: 'rgba(255,99,132,1)' },
-          { type: 'bar', label: 'Muy buena', data: [cantidadServicioMuyBuena], backgroundColor: 'rgba(54,162,235,0.5)', borderColor: 'rgba(54,162,235,1)' },
-          { type: 'bar', label: 'Buena', data: [cantidadServicioBuena], backgroundColor: 'rgba(255,206,86,0.5)', borderColor: 'rgba(255,206,86,1)' },
-          { type: 'bar', label: 'Regular', data: [cantidadServicioRegular], backgroundColor: 'rgba(75,192,192,0.5)', borderColor: 'rgba(75,192,192,1)' },
-          { type: 'bar', label: 'Mala', data: [cantidadServicioMala], backgroundColor: 'rgba(153,102,255,0.5)', borderColor: 'rgba(153,102,255,1)' },
-          { type: 'bar', label: 'Muy mala', data: [cantidadServicioMuyMala], backgroundColor: 'rgba(255,159,64,0.5)', borderColor:'rgba(255,159,64,1)' },
-          { type: 'bar', label: 'Pésima', data: [cantidadServicioPesima], backgroundColor:'rgba(201,203,207,0.5)', borderColor:'rgba(201,203,207,1)' }
+          { type: 'bar', label: 'Excelente', data: [14], backgroundColor: 'rgba(255,99,132,0.5)', borderColor: 'rgba(255,99,132,1)' },
+          { type: 'bar', label: 'Muy buena', data: [56], backgroundColor: 'rgba(54,162,235,0.5)', borderColor: 'rgba(54,162,235,1)' },
+          { type: 'bar', label: 'Buena', data: [98], backgroundColor: 'rgba(255,206,86,0.5)', borderColor: 'rgba(255,206,86,1)' },
+          { type: 'bar', label: 'Regular', data: [12], backgroundColor: 'rgba(75,192,192,0.5)', borderColor: 'rgba(75,192,192,1)' },
+          { type: 'bar', label: 'Mala', data: [15], backgroundColor: 'rgba(153,102,255,0.5)', borderColor: 'rgba(153,102,255,1)' },
+          { type: 'bar', label: 'Muy mala', data: [32], backgroundColor: 'rgba(255,159,64,0.5)', borderColor:'rgba(255,159,64,1)' },
+          { type: 'bar', label: 'Pésima', data: [53], backgroundColor:'rgba(201,203,207,0.5)', borderColor:'rgba(201,203,207,1)' }
         ]"
         />
     </div>
@@ -147,10 +145,10 @@
       <h2 class="titulo_centrado">Solicitud de información en oficina</h2>
       <app-grafico-mixed-chart
         [datasets]="[
-          {type: 'bar', label: 'Sin informacion', data: [cantidadSinInformacion], backgroundColor: 'rgba(255,99,132,0.5)', borderColor: 'rgba(255,99,132,1)'},
-          {type: 'bar', label: 'Oficina de la rotonda de ingreso', data: [cantidadOficinaRotonda], backgroundColor: 'rgba(54,162,235,0.5)', borderColor: 'rgba(54,162,235,1)'},
-          {type: 'bar', label: 'Oficina de Plazalote Merlo', data: [cantidadOficinaPlazaMerlo], backgroundColor: 'rgba(255,206,86,0.5)', borderColor: 'rgba(255,206,86,1)'},
-          {type: 'bar', label: 'Oficina de la terminal', data: [cantidadOficinaTerminal], backgroundColor: 'rgba(75,192,192,0.5)', borderColor: 'rgba(75,192,192,1)'}
+          {type: 'bar', label: 'Sin informacion', data: [21], backgroundColor: 'rgba(255,99,132,0.5)', borderColor: 'rgba(255,99,132,1)'},
+          {type: 'bar', label: 'Oficina de la rotonda de ingreso', data: [41], backgroundColor: 'rgba(54,162,235,0.5)', borderColor: 'rgba(54,162,235,1)'},
+          {type: 'bar', label: 'Oficina de Plazalote Merlo', data: [11], backgroundColor: 'rgba(255,206,86,0.5)', borderColor: 'rgba(255,206,86,1)'},
+          {type: 'bar', label: 'Oficina de la terminal', data: [67], backgroundColor: 'rgba(75,192,192,0.5)', borderColor: 'rgba(75,192,192,1)'}
         ]"
       />
     </div>
@@ -160,7 +158,7 @@
       <app-grafico-mixed-chart
         [labels]="['Hospedaje', 'Paseos', 'Eventos', 'Gastronomia', 'Turismo Aventura', 'Servicios', 'Rutas', 'Otros']"
         [datasets]="[
-          { type: 'line', label: 'Cantidad de encuestados', data: [cantidadInformacionHospedaje, cantidadInformacionPaseos, cantidadInformacionPaseos, cantidadInformacionEventos, cantidadInformacionGastronomia, cantidadInformacionTurismoAventura, cantidadInformacionServicios,cantidadInformacionRutas, cantidadInformacionOtros
+          { type: 'line', label: 'Cantidad de encuestados', data: [15,65,12,52,42,74,12,76,89
           ], backgroundColor: 'rgba(122, 57, 243, 0.705)', borderColor: 'rgba(122, 57, 243, 0.705)' }
         ]"
       />
@@ -170,13 +168,13 @@
       <h2 class="titulo_centrado">Calificación de la información</h2>
       <app-grafico-mixed-chart
         [datasets]="[
-          { type: 'bar', label: 'Excelente', data: [cantidadInformacionExcelente], backgroundColor: 'rgba(255,99,132,0.5)', borderColor: 'rgba(255,99,132,1)' },
-          { type: 'bar', label: 'Muy buena', data: [cantidadInformacionMuyBuena], backgroundColor: 'rgba(54,162,235,0.5)', borderColor: 'rgba(54,162,235,1)' },
-          { type: 'bar', label: 'Buena', data: [cantidadInformacionBuena], backgroundColor: 'rgba(255,206,86,0.5)', borderColor: 'rgba(255,206,86,1)' },
-          { type: 'bar', label: 'Regular', data: [cantidadInformacionRegular], backgroundColor: 'rgba(75,192,192,0.5)', borderColor: 'rgba(75,192,192,1)' },
-          { type: 'bar', label: 'Mala', data: [cantidadInformacionMala], backgroundColor: 'rgba(153,102,255,0.5)', borderColor: 'rgba(153,102,255,1)' },
-          { type: 'bar', label: 'Muy mala', data: [cantidadInformacionMuyMala], backgroundColor:'rgba(255,159,64,0.5)', borderColor:'rgba(255,159,64,1)'},
-          { type: 'bar', label: 'Pésima', data: [cantidadInformacionPesima], backgroundColor:'rgba(201,203,207,0.5)', borderColor:'rgba(201,203,207,1)'}
+          { type: 'bar', label: 'Excelente', data: [11], backgroundColor: 'rgba(255,99,132,0.5)', borderColor: 'rgba(255,99,132,1)' },
+          { type: 'bar', label: 'Muy buena', data: [42], backgroundColor: 'rgba(54,162,235,0.5)', borderColor: 'rgba(54,162,235,1)' },
+          { type: 'bar', label: 'Buena', data: [23], backgroundColor: 'rgba(255,206,86,0.5)', borderColor: 'rgba(255,206,86,1)' },
+          { type: 'bar', label: 'Regular', data: [12], backgroundColor: 'rgba(75,192,192,0.5)', borderColor: 'rgba(75,192,192,1)' },
+          { type: 'bar', label: 'Mala', data: [78], backgroundColor: 'rgba(153,102,255,0.5)', borderColor: 'rgba(153,102,255,1)' },
+          { type: 'bar', label: 'Muy mala', data: [34], backgroundColor:'rgba(255,159,64,0.5)', borderColor:'rgba(255,159,64,1)'},
+          { type: 'bar', label: 'Pésima', data: [12], backgroundColor:'rgba(201,203,207,0.5)', borderColor:'rgba(201,203,207,1)'}
         ]"
       />
     </div>
@@ -189,8 +187,8 @@
       <h2 class="titulo_graficos">¿Considera Mina Clavero un destino completo?</h2>
       <app-grafico-mixed-chart
         [datasets]="[
-          { type: 'bar', label: 'Sí', data: [cantidadDestinoCompletoSi], backgroundColor: 'rgba(255,99,132,0.5)', borderColor: 'rgba(255,99,132,1)' },
-          { type: 'bar', label: 'No', data: [cantidadDestinoCompletoNo], backgroundColor: 'rgba(54,162,235,0.5)', borderColor: 'rgba(54,162,235,1)' }
+          { type: 'bar', label: 'Sí', data: [12], backgroundColor: 'rgba(255,99,132,0.5)', borderColor: 'rgba(255,99,132,1)' },
+          { type: 'bar', label: 'No', data: [23], backgroundColor: 'rgba(54,162,235,0.5)', borderColor: 'rgba(54,162,235,1)' }
         ]"
         />
     </div>
@@ -199,8 +197,8 @@
       <h2 class="titulo_graficos">¿Recomendaría Mina Clavero como destino turístico?</h2>
       <app-grafico-mixed-chart
         [datasets]="[
-          { type: 'bar', label: 'Sí', data: [cantidadDestinoTuristicoSi], backgroundColor: 'rgba(255,99,132,0.5)', borderColor: 'rgba(255,99,132,1)' },
-          { type: 'bar', label: 'No', data: [cantidadDestinoTuristicoNo], backgroundColor: 'rgba(54,162,235,0.5)', borderColor: 'rgba(54,162,235,1)' }
+          { type: 'bar', label: 'Sí', data: [65], backgroundColor: 'rgba(255,99,132,0.5)', borderColor: 'rgba(255,99,132,1)' },
+          { type: 'bar', label: 'No', data: [34], backgroundColor: 'rgba(54,162,235,0.5)', borderColor: 'rgba(54,162,235,1)' }
         ]"
         />
     </div>
